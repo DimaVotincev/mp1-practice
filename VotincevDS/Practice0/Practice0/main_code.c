@@ -38,6 +38,7 @@ output:
 int main() {
     double x1, y1, r1;
     double x2, y2, r2;
+    double distance;
     printf("Type coordinates and radius of first circle\n");
     printf("in this order: x1 y1 r1\n");
     printf("(radius must be more than 0)\n");
@@ -47,17 +48,17 @@ int main() {
     scanf("%lf %lf %lf", &x2, &y2, &r2);
     
     
-    double distance = sqrt((x2 - x1)* (x2 - x1) + (y2 - y1) * (y2 - y1));
+    distance = sqrt((x2 - x1)* (x2 - x1) + (y2 - y1) * (y2 - y1));
     // distance between centers
 
     double catch_error = 0.01;
     // error rate
     
-    if ((distance - (r1 + r2)) > catch_error) {
+    if ((distance - (r1 + r2)) >= catch_error) {
         printf("The have no common points");
         return 0;
     }
-    else if ((distance - (r1 + r2)) < catch_error && (distance - (r1 + r2)) > -catch_error) {
+    else if (abs(distance - (r1 + r2)) < catch_error) {
         printf("They touches outside");
         return 0;
     }
@@ -72,7 +73,7 @@ int main() {
         mx = r2;
     }
     double tp_dist = distance + mr - mx; // touch point distance
-    if ( tp_dist < catch_error && tp_dist > -catch_error) {
+    if (abs(tp_dist) <= catch_error) {
         printf("Circles touches inside");
         return 0;
     }
