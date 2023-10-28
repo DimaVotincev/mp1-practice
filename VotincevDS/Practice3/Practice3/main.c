@@ -4,47 +4,112 @@
 
 
 
+void cr_number(int *digits,int n,int *d) {
+    int i = 0,digit;
+    digit = 1 + rand() % 9;
+    for (i; i < n; i++) {
+        
+        while (d[digit] == 0) {
+            digit = rand() % 10;
+        }
+        *digits += digit;
+        *digits *= 10;
+        d[digit]--;
+
+    }
+    *digits /= 10;
+}
+
+void cr_number_mas(int number,int n,int *sm) {
+    int i;
+    for (i = (n - 1); i >= 0; i--) {
+        sm[i] = (number)% 10;
+        (number) /= 10;
+    }
+}
+
+//void get_n(int *n) {
+//    do {
+//        scanf("%d", &n);
+//    } while (n < 2 || n>5);
+//}
+
+
 int main() {
-    int n, i,k;
-    int digits = 0; // число которое програ загадывает
+    int attempts = 0; // кол-во попыток
+    int n;
+    int digits = 0; // число которое программа загадывает
     int d[10] = { 1,1,1,1,1,1,1,1,1,1 }; 
     // массив с доступными цифрами (индекс == цифра)
+    // заполнен единицами т.к. каждую цифру можно исп. 1 раз
     int cows = 0, bulls = 0;
+    int cb = 0; // cows & bulls
     int suggest = 0; // предположение игрока
+    int dm[5]; // массив числа
+    int sm[5]; // массив предположения игрока
     
     printf("Welcome! This is 'Cow and Bull' game!\n");
     printf("Lets start with amout of bulls you'll guess\n Type it\n");
     printf("(it must be 2,3,4, or 5, no more!)\n");
+    
     do {
         scanf("%d", &n);
     } while (n < 2 || n>5);
+
     printf("Good! Now lets play\n");
     srand((unsigned int)time(0));
 
     
-    for (i = 0; i < n; i++) {
-        k = rand() % 10;
-        while (d[k] == 0) {
-            k = rand() % 10;
-        }
-        digits += k;
-        digits *= 10;
-        d[k]--;
-            
-    }
-    digits /= 10;
+    cr_number(&digits, n, &d);
+    
+    
+    
+    // create number     function call
+    
+
+    // create massive of 'digits'     function call
+    cr_number_mas(digits, n, &dm);
+    // 1) само число  
+    // 2) n - длина числа 
+    // 3) dm - массив, который заполняется цифрами числа
+    
+
     printf("Type number with %d  different digits\n", n);
-    scanf("%d", &suggest);
+    
     while (bulls != n) {
-        while (suggest) {
-            // считаю быков по массиву 
-            ;
+        scanf("%d", &suggest);
+        int i, j;
+        int bc = 0; // bulls & cows
+        cows = 0, bulls = 0;
+
+        // create massive of 'suggest'    function call
+        cr_number_mas(suggest, n, &sm);
+        
+        for (i = 0; i < n;i++) {
+            for (j = 0; j < n;j++) {
+                if (dm[i] == sm[j]) {
+                    bc++;
+
+                }
+            }
         }
+        for (i = 0; i < n;i++) {
+            if (dm[i] == sm[i]) {
+                bulls++;
+            }
+        }
+        
+        cows = bc - bulls;
         // считаю кол-во совпадающих цифр 
         // вычитаю кол-во быков  и получаю кол-во коров
         // gg
+
+        printf("cows    _%d_\n", cows);
+        printf("bulls   _%d_\n", bulls);
+        attempts++;
     }
-    
+    printf("Good game!\n");
+    printf("You did it for only %d attempts!\n",attempts);
     
 }
 /*
