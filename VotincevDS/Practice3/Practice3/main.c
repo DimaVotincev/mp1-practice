@@ -110,7 +110,7 @@ int main() {
     }
     printf("Good game!\n");
     printf("You did it for only %d attempts!\n",attempts);
-    
+    return 0;
 }
 /*
 разработать прогу реализующую игру быки-коровы
