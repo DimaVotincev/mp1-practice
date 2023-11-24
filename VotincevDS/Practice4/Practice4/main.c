@@ -16,10 +16,6 @@ int check[n];
 
 
 
-// using functions
-int same(char* a, char* b);
-// сравнивает строки
-
 void make_codes();
 // создаёт штрих-коды
 
@@ -65,49 +61,32 @@ int main() {
 
     // цикл работы программы
     while (1) {
+        char code[5];
+        char ans[10];
+        
         i = 0;
 
         // вводится штрих-код
-        char code[5];
         scanf("%s", &code); 
         
         // проверяется штрих-код
-        check_code(&code);
-        
-        
+        check_code(&code);      
         
         printf("Будем ещё добавлять товары? да/нет\n");
-        char ans[10];
+        
         scanf("%10s", &ans);
-        if (same(ans, "нет")) {
-            printf("\n\t\tВаш чек:\n\n");
-
-                           
+        if (strcmp(ans, "нет") == 0) {
+            printf("\n\t\tВаш чек:\n\n");                           
             fill_check();
-
             return 0;
         }
         
-        printf("Введите код очередного товара\n");
-        
+        printf("Введите код очередного товара\n");        
     }
 
+    return 0;
 }
 
-
-
-
-// реализованные функции
-int same(char* a, char* b) {
-    int i = 0;
-    int flag = 1;
-    int len = strlen(a);
-    for (; i < 4; i++) {
-        if (a[i] != b[i])
-            return 0;
-    }
-    return 1;
-}
 
 void make_codes() {
     int i = 0;
@@ -140,8 +119,8 @@ void print_product(int i) {
 
 
 void ask_and_add(int i) {
-    printf("Добавить в чек? да/нет\n");
     char ans[10];
+    printf("Добавить в чек? да/нет\n");
     scanf("%10s", &ans);
     char* ptr = strstr(ans, "да");
     if (ptr != NULL) {
@@ -157,17 +136,14 @@ void check_code(char* code) {
     int i = 0;
 
     for (; i < n;i++) {
-        int same_codes = same(codes[i], code);
-        if (same_codes) {
-
+        if (strcmp(codes[i], code) == 0) {
             print_product(i);
-
             ask_and_add(i);
             return;
         }
     }
 
-    if ((i == n) && !same(codes[n - 1], code)) {
+    if ((i == n) && strcmp(codes[n - 1], code) != 0) {
         printf("Под таким кодом товар отсутствует\n");
     }
 
