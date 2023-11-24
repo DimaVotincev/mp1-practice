@@ -81,7 +81,8 @@ int main() {
             return 0;
         }
         
-        printf("Введите код очередного товара\n");        
+        printf("Введите код очередного товара\n");    
+        
     }
 
     return 0;
@@ -103,6 +104,7 @@ void make_codes() {
         // поэтому матрица с 5 столбцами,а не 4
     }
 }
+
 
 void make_discounts() {
     int i;
@@ -151,7 +153,7 @@ void check_code(char* code) {
 
 
 
-void print_fmsg(int snd, int s) {
+void print_fmsg(double snd, double s) {
     printf("\nВсего к оплате: %.0lf руб\n", snd);
     printf("С учетом скидки (%.2lf%%): %.0lf руб\n",
         (1.0 - (s * 1.0 / snd)) * 100, s);
