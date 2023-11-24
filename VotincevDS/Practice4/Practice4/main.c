@@ -10,7 +10,7 @@ char codes[n][5];
 char* names[n] = { "Banana","Crisps","Chicken","Garlic",
     "Garlic Bread","Vine","Snickers","Coconuts","Milk",
     "Cheese","Ferrero Rocher","Kinder","Rice(500g)" };
-int prices[n] = { 12,67,320,5,34,3238,56,16,245,143,1199,62,136 };
+double prices[n] = { 12,67,320,5,34,3238,56,16,245,143,1199,62,136 };
 double discounts[n];
 int check[n];
 
@@ -113,7 +113,7 @@ void make_discounts() {
 }
 
 void print_product(int i) {
-    printf("%s - %d руб/шт - %.0lf%% скидка \n",
+    printf("%s - %.0lf руб/шт - %.0lf%% скидка \n",
         names[i], prices[i], discounts[i] * 100);
 }
 
@@ -152,8 +152,8 @@ void check_code(char* code) {
 
 
 void print_fmsg(int snd, int s) {
-    printf("\nВсего к оплате: %d руб\n", snd);
-    printf("С учетом скидки (%.2lf%%): %d руб\n",
+    printf("\nВсего к оплате: %.0lf руб\n", snd);
+    printf("С учетом скидки (%.2lf%%): %.0lf руб\n",
         (1.0 - (s * 1.0 / snd)) * 100, s);
     printf("\tПриходите к нам ещё ! <3 \n");
     printf("\n\n-------------------");
@@ -166,7 +166,7 @@ void fill_check() {
     for (;i < n; i++) {
         if (check[i] != 0) {
 
-            printf("%s - %d руб/шт - %d штук - %.0lf общая стоимость \n",
+            printf("%s - %.0lf руб/шт - %d штук - %.0lf общая стоимость \n",
                 names[i], prices[i], check[i],
                 prices[i] * check[i] * (1.0 - discounts[i]));
 
