@@ -107,10 +107,11 @@ int main() {
     
     
 }
+
 void cpy(pair* a, pair* b,int cf) {
     int i = 0;
     for (i; i < cf;i++) {
-        b[i].first = a[i].first;
+        b[i].first = _strdup(a[i].first);
         b[i].second = a[i].second;
     }
 }
@@ -253,31 +254,37 @@ void merge(pair* arr, int left, int middle, int right) {
     int n2 = right - middle;   
     pair* L = (pair*)malloc(n1 * sizeof(pair));
     pair* R = (pair*)malloc(n2 * sizeof(pair));   
-    for (i = 0; i < n1; i++)
-        L[i].second = arr[left + i].second;
-    for (j = 0; j < n2; j++)
-        R[j].second = arr[middle + 1 + j].second;  
+    
+    cpy(arr, L, n1);
+   
+    
+    cpy(arr, R, n2);
+   
     i = 0;
     j = 0;
     k = left;
     while (i < n1 && j < n2) {
         if (L[i].second <= R[j].second) {
             arr[k].second = L[i].second;
+            arr[k].first = L[i].first;
             i++;
         }
         else {
             arr[k].second = R[j].second;
+            arr[k].first = R[j].first;
             j++;
         }
         k++;
     }   
     while (i < n1) {
         arr[k].second = L[i].second;
+        arr[k].first = L[i].first;
         i++;
         k++;
     }
    while (j < n2) {
         arr[k].second = R[j].second;
+        arr[k].first = R[j].first;
         j++;
         k++;
     }
