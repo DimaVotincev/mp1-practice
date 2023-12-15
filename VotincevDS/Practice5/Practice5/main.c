@@ -60,14 +60,15 @@ int main() {
         while (1) {
             clock_t start;
             clock_t end;
-            start;
+            
             double spenttime;
             int cf = count_files(way);
             char ans[10];
             
             printf("Какую сортировку будем использовать?\n");
             printf(" 2 - выбором | 3 - вставкой | 4 - слиянием\n");
-            printf("(\tдля ввода нового пути введите 0  )\n\n");
+            printf("(\tдля ввода нового пути введите 0  )\n");
+            printf("(\tдля вывода исходного массива введите 9 )\n\n");
             printf("->");
             scanf("%s", &ans);
             printf("\n\n");
@@ -75,6 +76,10 @@ int main() {
             char el =  ans[0];
             if (el == '0') {
                 break;
+            }
+            else if (el == '9') {
+                pr_files(files_ns, cf);
+                
             }
 
             pair* f = (pair*)malloc(cf * sizeof(pair));
@@ -84,7 +89,8 @@ int main() {
             sort(f, 0, cf - 1,el, cf);
             end = clock(); // конец отсчёта
             spenttime = (double)(end - start) / CLOCKS_PER_SEC;
-            printf("\n Время: %.5f сек \n\n\n", spenttime);
+            if (el != '9') 
+                printf("\n Время: %.5f сек \n\n\n", spenttime);
             
             
             free(f);
@@ -154,7 +160,8 @@ void sort(pair files_ns[], int left, int right, char el, int cf) {
         
         break;
     default:
-        printf("Неверный номер\n");
+        
+        return;
     }
     pr_files(files_ns,cf);
 }
