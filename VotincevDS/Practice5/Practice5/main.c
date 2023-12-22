@@ -11,6 +11,8 @@ typedef struct  {
 
 pair* get_way_files(char* way,int cf);
 
+void ask_sort();
+
 void qsort(pair* files_ns, int n);
 
 int count_files(char way[]);
@@ -41,7 +43,7 @@ int main() {
     // массив, содержащий информацию о файлах в каталоге
     // содержит имя и размер каждого файла
     while (1) {
-        
+        int i;
         char way[255];
         int cw; // check way
         int cf;
@@ -65,51 +67,53 @@ int main() {
         while (1) {
             
             int check;
-            
-            
+            char el;           
             char ans[10];
-            printf("\n\n");
-            printf("Какую сортировку будем использовать?\n");
-            printf(" 2 - выбором | 3 - вставкой | 4 - слиянием | 5 - быстрая\n");
-            printf("(\tдля ввода нового пути введите 0  )\n");
-            printf("(\tдля вывода исходного массива введите 9 )\n\n");
-            printf("->");
+            pair* f; // копия files_ns
+                        
+            ask_sort();
+
             scanf("%s", &ans);
             printf("\n\n");
-            int i = 0; 
-            char el =  ans[0];
+            
+            el =  ans[0];
             if (el == '0') {
                 break;
             }
             else if (el == '9') {
                 pr_files(files_ns, cf);
-                
+                continue;
             }
 
-            pair* f = (pair*)malloc(cf * sizeof(pair));
+            f = (pair*)malloc(cf * sizeof(pair));
             cpy(files_ns, f,cf);
             
-            
             check = sort(f, 0, cf - 1,el, cf);
-            
-            
-            
-                
-            
-            
+            for (i = 0; i < cf; i++)
+            {
+                free(f[i].first);
+            }
             free(f);
             
         }
-    
-        
-
-        
-        
+        for (i = 0; i < cf; i++)
+        {
+            free(files_ns[i].first);
+        }
         free(files_ns);
         printf("\n\n");
     }
     
-    
+    return 0;
+}
+
+void ask_sort() {
+    printf("\n\n");
+    printf("Какую сортировку будем использовать?\n");
+    printf(" 2 - выбором | 3 - вставкой | 4 - слиянием | 5 - быстрая\n");
+    printf("(\tдля ввода нового пути введите 0  )\n");
+    printf("(\tдля вывода исходного массива введите 9 )\n\n");
+    printf("->");
 }
 
 void swap(pair* files_ns,int i, int j) {
@@ -124,8 +128,6 @@ void swap(pair* files_ns,int i, int j) {
         files_ns[i].first = files_ns[j].first;
         *b = tmp;
         files_ns[j].first = tmpw;
-
-        
     }
 }
 
@@ -137,60 +139,40 @@ void cpy(pair* a, pair* b,int cf) {
     }
 }
 
-void insert_sort(pair* files_ns, int cf) {
-    for (int i = 1; i < cf; i++) {
-        UINT64 key = files_ns[i].second;
-        char* keyw = files_ns[i].first;
-        int j = i - 1;
-        while (j >= 0 && files_ns[j].second > key) {
-            files_ns[j + 1].second = files_ns[j].second;
-            files_ns[j + 1].first = files_ns[j].first;
-            j--;
-        }
-        files_ns[j + 1].second = key;
-        files_ns[j + 1].first = keyw;
-    }
-}
 
-void select_sort(pair* files_ns, int cf) {
-    int i = 0, j;
-    for (i;i < cf-1; i++) {
-        for (j = i + 1;j < cf; j++) {
-            
-            swap(files_ns,i,j);
-        }
-    }
-}
 
 
 int sort(pair files_ns[], int left, int right, char el, int cf) {
     clock_t start;
     clock_t end;
     double spenttime;
-    start = clock(); // начало отсчёта
-    
-    
 
     switch (el) {
     case '2':
+        start = clock(); // начало отсчёта
         select_sort(files_ns, cf);
+        end = clock(); // конец отсчёта
         break;
     case '3':
+        start = clock(); // начало отсчёта
         insert_sort(files_ns, cf);
+        end = clock(); // конец отсчёта
         break;
     case '4':
-        
+        start = clock(); // начало отсчёта
         mergesort(files_ns, 0, cf - 1);
+        end = clock(); // конец отсчёта
         break;
     case '5':
+        start = clock(); // начало отсчёта
         qsort(files_ns,cf);
+        end = clock(); // конец отсчёта
         break;
-    default:
-        
+    default:       
         return 0;
     }
     
-    end = clock(); // конец отсчёта
+    
     spenttime = (double)(end - start) / CLOCKS_PER_SEC;
     pr_files(files_ns,cf);
     printf("\n Время: %.8f сек \n\n\n", spenttime);
@@ -202,7 +184,7 @@ int sort(pair files_ns[], int left, int right, char el, int cf) {
 void pr_files(pair* files_ns,int cf) {
     int i = 0;
     for (i;i < cf;i++) {
-        printf("%s %llu \n", files_ns[i].first, files_ns[i].second);
+        printf("%s   %llu байт \n", files_ns[i].first, files_ns[i].second);
     }
 }
 
@@ -289,6 +271,35 @@ pair* get_way_files(char* way,int cf) {
 
 
 
+void insert_sort(pair* files_ns, int cf) {
+    for (int i = 1; i < cf; i++) {
+        UINT64 key = files_ns[i].second;
+        char* keyw = files_ns[i].first;
+        int j = i - 1;
+        while (j >= 0 && files_ns[j].second > key) {
+            files_ns[j + 1].second = files_ns[j].second;
+            files_ns[j + 1].first = files_ns[j].first;
+            j--;
+        }
+        files_ns[j + 1].second = key;
+        files_ns[j + 1].first = keyw;
+    }
+}
+
+
+
+void select_sort(pair* files_ns, int cf) {
+    int i = 0, j;
+    for (i; i < cf - 1; i++) {
+        for (j = i + 1; j < cf; j++) {
+
+            swap(files_ns, i, j);
+        }
+    }
+}
+
+
+
 
 void merge(pair* arr, int left, int middle, int right) {
     int i, j, k;
@@ -334,6 +345,8 @@ void merge(pair* arr, int left, int middle, int right) {
         j++;
         k++;
     }
+   free(L);
+   free(R);
 }
 
 
