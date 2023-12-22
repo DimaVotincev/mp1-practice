@@ -63,10 +63,9 @@ int main() {
         files_ns = get_way_files(&way,cf);
         
         while (1) {
-            clock_t start;
-            clock_t end;
+            
             int check;
-            double spenttime;
+            
             
             char ans[10];
             printf("\n\n");
@@ -90,12 +89,12 @@ int main() {
             pair* f = (pair*)malloc(cf * sizeof(pair));
             cpy(files_ns, f,cf);
             
-            start = clock(); // начало отсчёта
+            
             check = sort(f, 0, cf - 1,el, cf);
-            end = clock(); // конец отсчёта
-            spenttime = (double)(end - start) / CLOCKS_PER_SEC;
-            if (check) 
-                printf("\n Время: %.8f сек \n\n\n", spenttime);
+            
+            
+            
+                
             
             
             free(f);
@@ -165,8 +164,13 @@ void select_sort(pair* files_ns, int cf) {
 
 
 int sort(pair files_ns[], int left, int right, char el, int cf) {
-
+    clock_t start;
+    clock_t end;
+    double spenttime;
+    start = clock(); // начало отсчёта
     
+    
+
     switch (el) {
     case '2':
         select_sort(files_ns, cf);
@@ -185,7 +189,11 @@ int sort(pair files_ns[], int left, int right, char el, int cf) {
         
         return 0;
     }
+    
+    end = clock(); // конец отсчёта
+    spenttime = (double)(end - start) / CLOCKS_PER_SEC;
     pr_files(files_ns,cf);
+    printf("\n Время: %.8f сек \n\n\n", spenttime);
     return 1;
 }
 
