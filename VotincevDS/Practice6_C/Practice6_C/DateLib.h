@@ -7,3 +7,5 @@ typedef struct {
 } DateLib;
 
 void alloc_datelib(DateLib* datelib, int n);
+void realloc_datelib(DateLib* datelib, int n);
+show_dates(DateLib* naznach, DateLib* postup);

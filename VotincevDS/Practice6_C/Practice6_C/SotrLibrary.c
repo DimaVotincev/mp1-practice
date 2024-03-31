@@ -4,7 +4,7 @@
 #include "Sotrudnik.h"
 #include "general.h"
 #include "Date.h"
-#include "Library.h"
+#include "SotrLibrary.h"
 
 void alloc_lib(SLibr* sl,int n) {
     sl->n = n;
@@ -12,7 +12,7 @@ void alloc_lib(SLibr* sl,int n) {
 }
 
 
-void get_libdata(char* filename, SLibr* sl) {
+void fill_libdata(char* filename, SLibr* sl) {
     int i;
     int n = 150;
     char* str1 = (char*)malloc(n);
@@ -22,6 +22,7 @@ void get_libdata(char* filename, SLibr* sl) {
         abort();
     }
     
+    // считываю кол-во сотрудников
     fscanf(f, "%s", str1);
     fscanf(f, "%s", str1);
     razm = atoi(str1);
@@ -29,11 +30,10 @@ void get_libdata(char* filename, SLibr* sl) {
     for (i = 0; i < sl->n;i++) {
         int date_count = 0; 
         // понадобится для дат поступления(назначения)
+
         Sotrudnik* s = &sl->sotr[i];
-
-        s->postuplenie.n = 10;
-        s->postuplenie.dates = (Date*)malloc(10*sizeof(Date));
-
+        alloc_datelib(&s->postuplenie, 10);
+        alloc_datelib(&s->naznachenie,10);
         // получение имени
         fscanf(f, "%s", str1);
         fgets(str1, n, f);
@@ -62,7 +62,7 @@ void get_libdata(char* filename, SLibr* sl) {
         fgets(str1, n, f);
         s->passport.kogda.str = _strdup(str1);
         make_good_str(s->passport.kogda.str, n);
-        make_good_date(&s->passport.kogda.str);
+        make_good_date(&s->passport.kogda);
 
         // получение дня рождения
         fscanf(f, "%s", str1);
@@ -111,25 +111,31 @@ void get_libdata(char* filename, SLibr* sl) {
         fscanf(f, "%s", str1);
         fscanf(f, "%s", str1);
         while (is_date(str1)) {
-            if (s->postuplenie.n > date_count) {
-                s->postuplenie.dates[date_count].str = _strdup(str1);
-                make_good_date(&s->postuplenie.dates[date_count].str);
-                date_count++;
+            if (s->postuplenie.n < date_count) {
+                realloc_datelib(&s->postuplenie, date_count*2);
             }
+            s->postuplenie.dates[date_count].str = _strdup(str1);
+            make_good_date(&s->postuplenie.dates[date_count].str);
+            date_count++;
             fscanf(f, "%s", str1);
         }
-        date_count = 0; // для дан назначения
-
+        realloc_datelib(&s->postuplenie, date_count);
+        date_count = 0; // для дат назначения
+        
+        
         // получение дат назначения
         fscanf(f, "%s", str1);
         while (is_date(str1)) {
-            if (s->naznachenie.n > date_count) {
-                s->naznachenie.dates[date_count].str = _strdup(str1);
-                make_good_date(&s->naznachenie.dates[date_count].str);
-                date_count++;
+            if (s->naznachenie.n < date_count) {
+                realloc_datelib(&s->naznachenie, date_count*2);
             }
+            s->naznachenie.dates[date_count].str = _strdup(str1);
+            make_good_date(&s->naznachenie.dates[date_count].str);
+            date_count++;
+            
             fscanf(f, "%s", str1);
         }
+        realloc_datelib(&s->naznachenie, date_count);
         // проверка на возвраст
         // (пенсионер или нет)
         if (is_old(&s->passport.birthday)) {
@@ -141,42 +147,3 @@ void get_libdata(char* filename, SLibr* sl) {
     }
     
 }
-
-
-
-//void get_sotrudnik(char* filename, Sotrudnik* s) {
-//    FILE* f = fopen(filename, "r");
-//    if (f == NULL) {
-//        abort();
-//    }
-//    char* str1 = (char*)malloc(200);
-//
-//    get_data(filename, s);
-//
-//    if (is_old(&s->passport.birthday)) {
-//        s->is_old = "yes";
-//    }
-//    else {
-//        s->is_old = "no";
-//    }
-//
-//
-//}
-
-/*
-Seria: 1234   +
-Nomer: 567890    +
-Kem_vidan: MVD Moscow Raiona  +
-When_vidan: 14.01.001   +
-Birthday: 01/03/1996   +
-Mesto_propiski: Karpov Street +
-Obrazovanie: Srednee obshee
-Specialnost: Programni ingener
-Podrazdelenie: otdel inzenerow
-Dolznost: glavnui inziner
-Oklad: 100000
-Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
-Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001
-
-
-*/

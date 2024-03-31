@@ -4,11 +4,6 @@
 #include <malloc.h>
 
 
-
-
-
-
-
 void make_good_str(char* input,int n) {
     char* output;
     int i;
@@ -34,7 +29,7 @@ void make_good_str(char* input,int n) {
         }
     }  
 
-    output = (char*)malloc(k); 
+    output = (char*)malloc(k*sizeof(char)); 
     k = 0; 
     for (i = 0; i < n;i++) {
         el = input[i];
@@ -63,11 +58,3 @@ void make_good_str(char* input,int n) {
 
     free(output);
 }
-
-
-
-
-
-
-
-

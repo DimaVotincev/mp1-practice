@@ -15,7 +15,6 @@ typedef struct {
     char* is_old;
 } Sotrudnik;
 
+void show_other(Sotrudnik* s);
+void get_sotrudnik(Sotrudnik* s, int k);
 
-void alloc_data(Sotrudnik* s);
-void get_sotrudnik(char* filename, Sotrudnik* s);
-void get_data(char* filename, Sotrudnik* s);

@@ -8,5 +8,4 @@ typedef struct {
 
 
 void alloc_lib(SLibr* sl, int n);
-void get_libdata(char* filename, Sotrudnik* s);
-
+void fill_libdata(char* filename, Sotrudnik* s);

@@ -13,5 +13,4 @@ typedef struct {
 
 } Passport;
 
-
-//void get_passport(char* filename, Sotrudnik* s);
+void show_pass(Passport* pass);

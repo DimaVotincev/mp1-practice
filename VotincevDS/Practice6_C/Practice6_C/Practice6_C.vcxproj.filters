@@ -30,7 +30,7 @@
     <ClCompile Include="Passport.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Library.c">
+    <ClCompile Include="SotrLibrary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DateLib.c">
@@ -50,7 +50,7 @@
     <ClInclude Include="Sotrudnik.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Library.h">
+    <ClInclude Include="SotrLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DateLib.h">
