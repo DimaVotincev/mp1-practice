@@ -2,20 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 #include "Sotrudnik.h"
+#include "general.h"
+#include "Date.h"
 
 void alloc_data(Sotrudnik* s) {
 
-    //s->passport.kem = (char*)malloc(100);
-    //s->passport.propiska = (char*)malloc(50);
-    //s->passport.birthday.str = (char*)malloc(12);
-    //s->passport.kogda.str = (char*)malloc(12);
-    ////alloc_date(&s->passport.birthday);
-    ////alloc_date(&s->passport.kogda);
+    s->passport.kem = (char*)malloc(100);
+    s->passport.propiska = (char*)malloc(50);
+    s->passport.birthday.str = (char*)malloc(12);
+    s->passport.kogda.str = (char*)malloc(12);
+    s->passport.birthday.str = (char*)malloc(12);
 
-    //s->obrazov = (char*)malloc(sizeof(char) * 50);
-    //s->specialnost = (char*)malloc(sizeof(char) * 50);
-    //s->podrazd = (char*)malloc(sizeof(char) * 50);
-    //s->dolznost = (char*)malloc(sizeof(char) * 50);
+    s->obrazov = (char*)malloc(sizeof(char) * 50);
+    s->specialnost = (char*)malloc(sizeof(char) * 50);
+    s->podrazd = (char*)malloc(sizeof(char) * 50);
+    s->dolznost = (char*)malloc(sizeof(char) * 50);
 }
 
 
@@ -24,12 +25,14 @@ void get_data(char* filename, Sotrudnik* s) {
     if (f == NULL) {
         abort();
     }
-    int n = 100;
+    int n = 150;
     char* str1 = (char*)malloc(n);
 
 
-    alloc_data(s);
+    //alloc_data(s);
 
+    //get_passport(filename,&s->passport);
+    
     // получение серии
     fscanf(f, "%s", str1);
     fscanf(f, "%s", str1);
@@ -43,7 +46,7 @@ void get_data(char* filename, Sotrudnik* s) {
     // получение кем выдан пасспорт
     fscanf(f, "%s", str1);
     fgets(str1, n, f);
-    s->passport.kem = _strdup(str1);
+    s->passport.kem = _strdup(str1);    
     make_good_str(s->passport.kem, n);
 
     // получение когда выдан пасспорт
@@ -51,7 +54,7 @@ void get_data(char* filename, Sotrudnik* s) {
     fgets(str1, n, f);
     s->passport.kogda.str = _strdup(str1);
     make_good_str(s->passport.kogda.str, n);
-    make_good_date(&s->passport.kogda);
+    make_good_date(&s->passport.kogda.str);
 
     // получение дня рождения
     fscanf(f, "%s", str1);
@@ -94,7 +97,7 @@ void get_data(char* filename, Sotrudnik* s) {
     fscanf(f, "%s", str1);
     fscanf(f, "%s", str1);
     s->oklad = atoi(str1);
-
+    
 }
 
 

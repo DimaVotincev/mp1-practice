@@ -2,7 +2,7 @@ Seria: 1234
 Nomer: 567890 
 Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
-Birthday: 19/3/1996
+Birthday: 5/3/1959
 Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
 Obrazovanie: Srednee obsheeeee
 Specialnost: Programni ingener
@@ -11,4 +11,18 @@ Dolznost: glavnui inziner
 Oklad: 100000
 Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
 Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001
-+ пенсионер в файл-выход
+Seria: 9999
+Nomer: 234532
+Kem_vidan: MVD     Moscow Raiona
+Kogda_vidan: 14.01.1999
+Birthday: 5/3/1959
+Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
+Obrazovanie: Srednee obsheeeee
+Specialnost: Programni ingener
+Podrazdelenie: otdel inzenerow
+Dolznost: glavnui inziner
+Oklad: 100000
+Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
+Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001
+1
+Name: Peter Georgiev

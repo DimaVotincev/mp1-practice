@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 #include "Passport.h"
-#include "Sotrudnik.h"
-#include "general.h"
 
 
 

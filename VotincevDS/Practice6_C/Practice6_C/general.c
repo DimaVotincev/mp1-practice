@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "general.h"
-#include "Sotrudnik.h"
+#include <malloc.h>
+
 
 
 
@@ -10,7 +10,7 @@
 
 
 void make_good_str(char* input,int n) {
-    
+    char* output;
     int i;
     char el;
     int k = 0;  // количество нужных символов
@@ -33,7 +33,8 @@ void make_good_str(char* input,int n) {
             break;
         }
     }  
-    char* output = (char*)malloc(sizeof(char)*(k)); 
+
+    output = (char*)malloc(k); 
     k = 0; 
     for (i = 0; i < n;i++) {
         el = input[i];
@@ -52,9 +53,14 @@ void make_good_str(char* input,int n) {
             break;
         }
     }   
+
+    // после цикла k = длина - 1
     output[k] = '\0';
-    realloc(input, k);
-    memcpy(input,output,k);
+    k++; 
+    for (i = 0; i < k;i++) {
+        input[i] = output[i];
+    }
+
     free(output);
 }
 

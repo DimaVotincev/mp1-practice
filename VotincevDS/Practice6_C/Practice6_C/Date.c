@@ -46,7 +46,6 @@ void make_good_date(Date* date) {
         }
 
     }  
-
     if (date_is_correct(date)) {
         return;
     }
@@ -65,9 +64,7 @@ int date_is_correct(Date* date) {
         month < 1 || month > 12) {
         return 0;
     }
-
-    
-
+   
     if (year % 400 == 0 ||
         ((year % 4 == 0) && (year % 100 != 0))) {
         if (month == 2 && day > 30) {
@@ -75,7 +72,6 @@ int date_is_correct(Date* date) {
         }
     }
     
-
     if (month == 1 || month == 3
         || month == 5 || month == 7
         || month == 8 || month == 10
@@ -92,8 +88,7 @@ int date_is_correct(Date* date) {
             return 0;
         }
     }
-    return 1;
-    
+    return 1;    
 }
 
 
@@ -106,11 +101,17 @@ int is_old(Date* date) {
     int d = localTime->tm_mday;
     int m = localTime->tm_mon + 1;
     int y = localTime->tm_year + 1900;
-    if ((y - date->y) >= 65) {
+    if ((y - date->y) > 65) {
         return 1;
     }
 
-
-    
-
+    if ((y - date->y) == 65) {
+        if (date->m > m) {
+            return 1;
+        } 
+        if (date->m == m && date->d >= d) {
+            return 1;
+        }
+    }
+    return 0;    
 }
