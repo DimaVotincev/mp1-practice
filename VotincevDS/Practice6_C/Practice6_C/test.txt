@@ -1,4 +1,6 @@
-Seria: 1234
+Sotrudnik_Count: 3
+Name: Igor Petrovich
+Seria: 2461
 Nomer: 567890 
 Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
@@ -8,21 +10,34 @@ Obrazovanie: Srednee obsheeeee
 Specialnost: Programni ingener
 Podrazdelenie: otdel inzenerow
 Dolznost: glavnui inziner
-Oklad: 100000
+Oklad: 80000
 Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
 Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001
-Seria: 9999
-Nomer: 234532
-Kem_vidan: MVD     Moscow Raiona
-Kogda_vidan: 14.01.1999
-Birthday: 5/3/1959
-Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
-Obrazovanie: Srednee obsheeeee
-Specialnost: Programni ingener
-Podrazdelenie: otdel inzenerow
-Dolznost: glavnui inziner
-Oklad: 100000
+Name: Sergey Nicolaevich
+Seria: 7453
+Nomer: 402948
+Kem_vidan: UVD KANAVINSKOGO RAIONA
+Kogda_vidan: 31.03.2005
+Birthday: 5/3/1990
+Mesto_propiski: Moscow oblast, Moscow, Arbatov street 82
+Obrazovanie: Garvard Graduater 
+Specialnost: Programmer
+Podrazdelenie: GameDev
+Dolznost: Leading programmer
+Oklad: 300000
 Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
 Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001
-1
 Name: Peter Georgiev
+Seria: 2910
+Nomer: 435621
+Kem_vidan: MVD  OMSKOGO RAYONA
+Kogda_vidan: 25.01.1999
+Birthday: 17/3/1960
+Mesto_propiski: Omsk, Kandratieva stree 15
+Obrazovanie: Vishee
+Specialnost: Tokar
+Podrazdelenie: otdel tokarnih stankov
+Dolznost: Tokar
+Oklad: 90000
+Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
+Dates_last_assignment: 11.02.2001 10.01.2001 11.03.2001

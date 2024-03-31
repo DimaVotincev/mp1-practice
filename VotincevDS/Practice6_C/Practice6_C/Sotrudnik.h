@@ -3,6 +3,7 @@
 #include "Date.h"
 
 typedef struct {
+    char* name;
     Passport passport;
     char* obrazov;
     char* specialnost;
@@ -12,8 +13,6 @@ typedef struct {
     struct Date* postuplenie;
     struct Date* naznachenie;
     char* is_old;
-
-
 } Sotrudnik;
 
 

@@ -33,6 +33,11 @@ void get_data(char* filename, Sotrudnik* s) {
 
     //get_passport(filename,&s->passport);
     
+    // тк мен€ю базу
+    fscanf(f, "%s", str1);
+    fscanf(f, "%s", str1);
+
+
     // получение серии
     fscanf(f, "%s", str1);
     fscanf(f, "%s", str1);
