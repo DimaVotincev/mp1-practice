@@ -23,8 +23,11 @@ int main() {
     SLibr sl;
     get_libdata(filename,&sl);
 
-
-
+    printf("%d",sl.sotr[0].postuplenie.dates[2].m);
+    // дюрш онярсокемхъ
+    // х
+    // дюрш мюгмювемхъ
+    // ме явхрюмш!
     return 0;
 }
 

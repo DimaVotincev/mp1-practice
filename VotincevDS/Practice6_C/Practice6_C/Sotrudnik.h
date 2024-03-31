@@ -1,7 +1,7 @@
 #pragma once
 #include "Passport.h"
 #include "Date.h"
-
+#include "DateLib.h"
 typedef struct {
     char* name;
     Passport passport;
@@ -10,8 +10,8 @@ typedef struct {
     char* podrazd;
     char* dolznost;
     int oklad;
-    struct Date* postuplenie;
-    struct Date* naznachenie;
+    DateLib postuplenie;
+    DateLib naznachenie;
     char* is_old;
 } Sotrudnik;
 

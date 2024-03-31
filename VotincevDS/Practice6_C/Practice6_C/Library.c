@@ -27,7 +27,12 @@ void get_libdata(char* filename, SLibr* sl) {
     razm = atoi(str1);
     alloc_lib(sl,razm);
     for (i = 0; i < sl->n;i++) {
+        int date_count = 0; 
+        // понадобится для дат поступления(назначения)
         Sotrudnik* s = &sl->sotr[i];
+
+        s->postuplenie.n = 10;
+        s->postuplenie.dates = (Date*)malloc(10*sizeof(Date));
 
         // получение имени
         fscanf(f, "%s", str1);
@@ -101,34 +106,40 @@ void get_libdata(char* filename, SLibr* sl) {
         fscanf(f, "%s", str1);
         s->oklad = atoi(str1);
 
+       
+        // получение дат поступления
+        fscanf(f, "%s", str1);
+        fscanf(f, "%s", str1);
+        while (is_date(str1)) {
+            if (s->postuplenie.n > date_count) {
+                s->postuplenie.dates[date_count].str = _strdup(str1);
+                make_good_date(&s->postuplenie.dates[date_count].str);
+                date_count++;
+            }
+            fscanf(f, "%s", str1);
+        }
+        date_count = 0; // для дан назначения
+
+        // получение дат назначения
+        fscanf(f, "%s", str1);
+        while (is_date(str1)) {
+            if (s->naznachenie.n > date_count) {
+                s->naznachenie.dates[date_count].str = _strdup(str1);
+                make_good_date(&s->naznachenie.dates[date_count].str);
+                date_count++;
+            }
+            fscanf(f, "%s", str1);
+        }
+        // проверка на возвраст
+        // (пенсионер или нет)
         if (is_old(&s->passport.birthday)) {
             s->is_old = "yes";
         }
         else {
             s->is_old = "no";
         }
-
-
-
-
-
-        // пока скипаю даты поступления
-        fgets(str1, n, f);
-        fgets(str1, n, f);
-        fgets(str1, n, f);
     }
     
-    
-    
-
-    // получение кем выдан пасспорт
-    /*fscanf(f, "%s", str1);
-    fgets(str1, n, f);
-    sl->sotr->passport.kem = _strdup(str1);
-    make_good_str(sl->sotr->passport.kem, n);*/
-
-    
-
 }
 
 
