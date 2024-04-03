@@ -28,7 +28,9 @@ void realloc_lib(SLibr* sl, int n) {
         s.sotr[i] = sl->sotr[i];
     }
 
-    free_lib(sl);
+    free_lib(sl); // освобождает и s тоже
+    // поэтому надо чтобы s1 копировал
+    // поэлементно и _strdup() со строками GG
     sl->sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
     for (int i = 0; i < n; i++) {
         sl->sotr[i] = s.sotr[i];
