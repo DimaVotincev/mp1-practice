@@ -14,3 +14,12 @@ void show_pass(Passport* pass) {
     printf("Прописка: %s \n", pass->propiska);
     
 }
+
+void free_pass(Passport pass) {
+    free_date(pass.birthday);
+    free_date(pass.kogda);
+    free(pass.kem);
+    free(pass.propiska);
+    
+}
+

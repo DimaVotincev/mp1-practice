@@ -7,6 +7,18 @@
 #include "DateLib.h"
 
 
+void free_sotr(Sotrudnik s) {
+    
+    free_pass(s.passport);
+    free(s.name);
+    free(s.obrazov);
+    free(s.specialnost);
+    free(s.podrazd);
+    free(s.dolznost);
+    free_date(s.postuplenie);
+    free_date(s.naznachenie);
+    
+}
 
 void show_other(Sotrudnik* s) {
     printf("Образование: %s\n", s->obrazov);

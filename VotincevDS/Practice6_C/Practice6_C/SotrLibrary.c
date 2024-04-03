@@ -11,10 +11,34 @@ void alloc_lib(SLibr* sl,int n) {
     sl->sotr = (Sotrudnik*)malloc(n*sizeof(Sotrudnik));
 }
 
+void free_lib(SLibr *sl) {
+    int i = 0;
+    for (; i < sl->n; i++) {
+        free_sotr(sl->sotr[i]);
+    }
+    
+}
+
+void realloc_lib(SLibr* sl, int n) {
+    SLibr s;
+    s.n = n;
+    s.sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
+    sl->n = n;
+    for (int i = 0; i < n; i++) {
+        s.sotr[i] = sl->sotr[i];
+    }
+
+    free_lib(sl);
+    sl->sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
+    for (int i = 0; i < n; i++) {
+        sl->sotr[i] = s.sotr[i];
+    }
+}
+
 
 void fill_libdata(char* filename, SLibr* sl) {
     int i;
-    int n = 150;
+    const int n = 150;
     char* str1 = (char*)malloc(n);
     int razm;
     FILE* f = fopen(filename, "r");
@@ -110,40 +134,51 @@ void fill_libdata(char* filename, SLibr* sl) {
         // получение дат поступления
         fscanf(f, "%s", str1);
         fscanf(f, "%s", str1);
-        while (is_date(str1)) {
-            if (s->postuplenie.n < date_count) {
-                realloc_datelib(&s->postuplenie, date_count*2);
-            }
-            s->postuplenie.dates[date_count].str = _strdup(str1);
-            make_good_date(&s->postuplenie.dates[date_count].str);
-            date_count++;
-            fscanf(f, "%s", str1);
-        }
-        realloc_datelib(&s->postuplenie, date_count);
-        date_count = 0; // для дат назначения
-        
+        s->postuplenie.str = _strdup(str1);       
+        make_good_str(s->postuplenie.str, n);
+        make_good_date(&s->postuplenie.str);
         
         // получение дат назначения
         fscanf(f, "%s", str1);
-        while (is_date(str1)) {
-            if (s->naznachenie.n < date_count) {
-                realloc_datelib(&s->naznachenie, date_count*2);
-            }
-            s->naznachenie.dates[date_count].str = _strdup(str1);
-            make_good_date(&s->naznachenie.dates[date_count].str);
-            date_count++;
-            
-            fscanf(f, "%s", str1);
-        }
-        realloc_datelib(&s->naznachenie, date_count);
+        fscanf(f, "%s", str1);
+        
+        s->naznachenie.str = _strdup(str1);
+        make_good_str(s->naznachenie.str, n);
+        make_good_date(&s->naznachenie.str);
+
+        fscanf(f, "%s", str1);
         // проверка на возвраст
         // (пенсионер или нет)
         if (is_old(&s->passport.birthday)) {
-            s->is_old = "yes";
+            s->is_old = 1;
         }
         else {
-            s->is_old = "no";
+            s->is_old = 0;
         }
     }
     
 }
+
+void fill_oldlibdata(SLibr* s, SLibr* olds) {
+    int sotr_count = 0;
+    alloc_lib(olds,s->n);
+    int i = 0;
+    for (; i < s->n; i++) {
+        if (s->sotr[i].is_old == 1) {
+            
+            olds->sotr[sotr_count] = s->sotr[i];
+            sotr_count++;
+        }
+    }
+    realloc_lib(olds, sotr_count);
+
+}
+
+
+
+
+
+
+
+
+

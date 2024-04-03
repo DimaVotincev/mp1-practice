@@ -11,8 +11,8 @@ Specialnost: Programni ingener
 Podrazdelenie: otdel inzenerow
 Dolznost: glavnui inziner
 Oklad: 80000
-Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.06.2000
-Dates_naznachenie: 11.02.2001 10.01.2001 11.03.2001
+Dates_postpuplenii_v_firmu:  14.06.2000
+Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
 Name: Sergey Nicolaevich
 Seria: 7453
@@ -26,8 +26,8 @@ Specialnost: Programmer
 Podrazdelenie: GameDev
 Dolznost: Leading programmer
 Oklad: 300000
-Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
-Dates_naznachenie: 11.02.2001 10.01.2001 11.03.2001
+Dates_postpuplenii_v_firmu:  14.03.2000 
+Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
 Name: Peter Georgiev
 Seria: 2910
@@ -41,8 +41,8 @@ Specialnost: Tokar
 Podrazdelenie: otdel tokarnih stankov
 Dolznost: Tokar
 Oklad: 90000
-Dates_postpuplenii_v_firmu:  14.03.2000 01.05.2000 14.05.2000
-Dates_naznachenie: 11.02.2001 10.01.2001 11.03.2001
+Dates_postpuplenii_v_firmu:  14.05.2000
+Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
 Name: Nina Frolkina
 Seria: 1924
@@ -57,7 +57,7 @@ Podrazdelenie: otdel po otchetu ubitkov
 Dolznost: Bugalter
 Oklad: 67990
 Dates_postpuplenii_v_firmu: 30.03.2021
-Dates_naznachenie: 30.03.2021 17.1.2022
+Dates_naznachenie: 30.03.2021 
 -------------------------------------------------------------------------
 Name: Fedor Postukov
 Seria: 2395
@@ -72,14 +72,14 @@ Podrazdelenie: tech personal
 Dolznost: Data scientist
 Oklad: 500000
 Dates_postpuplenii_v_firmu: 3.5.2020
-Dates_naznachenie: 3.5.2020 15.9.2023
+Dates_naznachenie: 3.5.2020 
 -------------------------------------------------------------------------
 Name: Nikolai Famusov
 Seria: 2249 
 Nomer: 192034
 Kem_vidan: UFMS PO NIZHERODSKOI OBLASTI
 Kogda_vidan: 9.5.1980
-Birthday: 18.3.1960
+Birthday: 18.3.1950
 Mesto_propiski: Gorod Niznii Novgorod, Lenina street 18
 Obrazovanie: Vishee
 Specialnost: Tester
@@ -87,5 +87,5 @@ Podrazdelenie: otdel tex obsluzivaniya
 Dolznost: Inziner
 Oklad: 120000
 Dates_postpuplenii_v_firmu:  15.2.2003
-Dates_naznachenie:  17.2.2003 20.5.2005
+Dates_naznachenie:  17.2.2003 
 -------------------------------------------------------------------------

@@ -9,6 +9,7 @@ typedef struct {
 
 } Date;
 
+void free_date(Date date);
 void alloc_date(Date* date);
 void make_good_date(Date* date);
 int date_is_correct(Date* date);

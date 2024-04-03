@@ -10,11 +10,12 @@ typedef struct {
     char* podrazd;
     char* dolznost;
     int oklad;
-    DateLib postuplenie;
-    DateLib naznachenie;
-    char* is_old;
+    Date postuplenie; // Date !!
+    Date naznachenie; // Date !!   
+    int is_old;
 } Sotrudnik;
 
+void free_sotr(Sotrudnik s);
 void show_other(Sotrudnik* s);
 void get_sotrudnik(Sotrudnik* s, int k);
 

@@ -9,6 +9,10 @@ void alloc_date(Date* date) {
     date->str = (char*)malloc(sizeof(char)*10);
 }
 
+void free_date(Date date) {
+    free(date.str);
+   
+}
 
 void make_good_date(Date* date) {
     int i = 0, j = 0, k = 0;

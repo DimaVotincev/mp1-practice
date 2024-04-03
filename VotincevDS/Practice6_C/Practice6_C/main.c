@@ -15,8 +15,11 @@ int main() {
     char filename[] = "test.txt"; 
     int i,k;
     SLibr sl;
+    SLibr slold;
     Sotrudnik* sotrudnik;
     fill_libdata(filename,&sl);
+
+    fill_oldlibdata(&sl,&slold);
 
     while (1) {
         printf("\t\tВ базе данных хранится информация ");
