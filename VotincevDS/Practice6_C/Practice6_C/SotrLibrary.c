@@ -11,31 +11,32 @@ void alloc_lib(SLibr* sl,int n) {
     sl->sotr = (Sotrudnik*)malloc(n*sizeof(Sotrudnik));
 }
 
-void free_lib(SLibr *sl) {
-    int i = 0;
-    for (; i < sl->n; i++) {
-        free_sotr(sl->sotr[i]);
-    }
-    
-}
+//void free_lib(SLibr *sl) {
+//    int i = 0;
+//    for (; i < sl->n; i++) {
+//        free_sotr(sl->sotr[i]);
+//    }
+//    
+//}
 
-void realloc_lib(SLibr* sl, int n) {
-    SLibr s;
-    s.n = n;
-    s.sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
-    sl->n = n;
-    for (int i = 0; i < n; i++) {
-        s.sotr[i] = sl->sotr[i];
-    }
-
-    free_lib(sl); // освобождает и s тоже
-    // поэтому надо чтобы s1 копировал
-    // поэлементно и _strdup() со строками GG
-    sl->sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
-    for (int i = 0; i < n; i++) {
-        sl->sotr[i] = s.sotr[i];
-    }
-}
+//void realloc_lib(SLibr* sl, int n) {
+//    SLibr s;
+//    s.n = n;
+//    s.sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
+//    sl->n = n;
+//    for (int i = 0; i < n; i++) {
+//        memcpy(&s.sotr[i],&sl->sotr[i],sizeof(Sotrudnik));
+//        
+//    }
+//
+//    free_lib(sl); // освобождает и s тоже
+//    // поэтому надо чтобы s1 копировал
+//    // поэлементно и _strdup() со строками GG
+//    sl->sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
+//    for (int i = 0; i < n; i++) {
+//        sl->sotr[i] = s.sotr[i];
+//    }
+//}
 
 
 void fill_libdata(char* filename, SLibr* sl) {
@@ -161,19 +162,32 @@ void fill_libdata(char* filename, SLibr* sl) {
     
 }
 
-void fill_oldlibdata(SLibr* s, SLibr* olds) {
+void fill_oldlibdata(const SLibr* sl, SLibr* oldsl) {
     int sotr_count = 0;
-    alloc_lib(olds,s->n);
+    int k = 0;
     int i = 0;
-    for (; i < s->n; i++) {
-        if (s->sotr[i].is_old == 1) {
-            
-            olds->sotr[sotr_count] = s->sotr[i];
+    for (; i < sl->n; i++) {
+        if (sl->sotr[i].is_old == 1) {
+
             sotr_count++;
         }
     }
-    realloc_lib(olds, sotr_count);
 
+    alloc_lib(oldsl, sotr_count);
+    
+    
+    for (i = 0; i < sl->n; i++) {
+        if (sl->sotr[i].is_old == 1) {
+
+            sotr_cpy(&sl->sotr[i], &oldsl->sotr[k]);
+
+
+            k++;
+            if (k == sotr_count) {
+                break;
+            }
+        }
+    }
 }
 
 

@@ -28,6 +28,8 @@ int main() {
             printf("%d: %s \n", i+1, sl.sotr[i].name);
         }
         printf("\t\tО каком сотруднике необходима информация?\n");
+        printf("Если нужен список сотрудников пенсионного возраста\n");
+        printf("введите 0 \n");
         printf("(введите -1 для завершения)\n");
         scanf("%d", &k);
 
@@ -35,6 +37,7 @@ int main() {
             return 0;
         }
 
+        // информация о сотрудниках
         if (k > 0 && k <= sl.n) {
             k--; // тк индекс на 1 меньше
             sotrudnik = &sl.sotr[k];
@@ -44,12 +47,39 @@ int main() {
             printf("2: общая информация \n");
             printf("3: даты назначения и поступления\n");
             printf("4: всю информацию\n");
-            scanf("%d", &k);
-            k--;
+            scanf("%*c%d", &k);
+            get_sotrudnik(sotrudnik, k);
+            printf("\n\n\n");
+            continue;
+
+        }
+
+        // информация о сотрудниках пенсионного возраста
+        if (k == 0) {
+            printf("Сотрудники пенсионного возраста:\n", slold.n);
+            for (i = 0; i < slold.n;i++) {
+                printf("%d: %s \n", i + 1, slold.sotr[i].name);
+            }
+        }
+
+        printf("\t\tО каком сотруднике необходима информация?\n");
+        scanf("%*c%d", &k);
+        if (k > 0 && k <= slold.n) {
+            k--; // тк индекс на 1 меньше
+            sotrudnik = &slold.sotr[k];
+
+            printf("\t\tКакая информация нужна?\n");
+            printf("1: паспорт \n");
+            printf("2: общая информация \n");
+            printf("3: даты назначения и поступления\n");
+            printf("4: всю информацию\n");
+            
+            scanf("%*c%d", &k);
             get_sotrudnik(sotrudnik, k);
 
         }
-        printf("\n\n\n\n\n");
+        
+        printf("\n\n\n");
     }  
     return 0;
 }

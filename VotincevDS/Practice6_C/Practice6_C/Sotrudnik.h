@@ -15,7 +15,8 @@ typedef struct {
     int is_old;
 } Sotrudnik;
 
-void free_sotr(Sotrudnik s);
+void sotr_cpy(Sotrudnik* sl, Sotrudnik* olds);
+//void free_sotr(Sotrudnik s);
 void show_other(Sotrudnik* s);
 void get_sotrudnik(Sotrudnik* s, int k);
 

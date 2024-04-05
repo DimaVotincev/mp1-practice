@@ -31,14 +31,8 @@ void realloc_datelib(DateLib* datelib, int n) {
 }
 
 
-show_dates(DateLib* naznach , DateLib* postup) {
-    int i;
-    printf("Даты назначения: ");
-    for (i = 0; i < naznach->n;i++) {
-        printf("%s ", naznach->dates[i].str);
-    }   
-    printf("\nДаты поступления: ");
-    for (i = 0; i < postup->n;i++) {
-        printf("%s ", postup->dates[i].str);
-    }
+show_dates(Date* naznach , Date* postup) {
+    printf("Дата назначения: %s \n",naznach->str);  
+    printf("Дата поступления: %s \n", postup->str);
+    
 }
