@@ -13,5 +13,5 @@ typedef struct {
 
 } Passport;
 
-void free_pass(Passport pass);
+
 void show_pass(Passport* pass);

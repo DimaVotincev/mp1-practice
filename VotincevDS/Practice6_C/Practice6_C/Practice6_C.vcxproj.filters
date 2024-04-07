@@ -33,9 +33,6 @@
     <ClCompile Include="SotrLibrary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DateLib.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h">
@@ -51,9 +48,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SotrLibrary.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DateLib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

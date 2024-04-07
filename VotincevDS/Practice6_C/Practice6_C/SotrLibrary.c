@@ -11,33 +11,6 @@ void alloc_lib(SLibr* sl,int n) {
     sl->sotr = (Sotrudnik*)malloc(n*sizeof(Sotrudnik));
 }
 
-//void free_lib(SLibr *sl) {
-//    int i = 0;
-//    for (; i < sl->n; i++) {
-//        free_sotr(sl->sotr[i]);
-//    }
-//    
-//}
-
-//void realloc_lib(SLibr* sl, int n) {
-//    SLibr s;
-//    s.n = n;
-//    s.sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
-//    sl->n = n;
-//    for (int i = 0; i < n; i++) {
-//        memcpy(&s.sotr[i],&sl->sotr[i],sizeof(Sotrudnik));
-//        
-//    }
-//
-//    free_lib(sl); // освобождает и s тоже
-//    // поэтому надо чтобы s1 копировал
-//    // поэлементно и _strdup() со строками GG
-//    sl->sotr = (Sotrudnik*)malloc(n * sizeof(Sotrudnik));
-//    for (int i = 0; i < n; i++) {
-//        sl->sotr[i] = s.sotr[i];
-//    }
-//}
-
 
 void fill_libdata(char* filename, SLibr* sl) {
     int i;
@@ -55,12 +28,8 @@ void fill_libdata(char* filename, SLibr* sl) {
     razm = atoi(str1);
     alloc_lib(sl,razm);
     for (i = 0; i < sl->n;i++) {
-        int date_count = 0; 
-        // понадобится для дат поступления(назначения)
 
         Sotrudnik* s = &sl->sotr[i];
-        alloc_datelib(&s->postuplenie, 10);
-        alloc_datelib(&s->naznachenie,10);
         // получение имени
         fscanf(f, "%s", str1);
         fgets(str1, n, f);
@@ -149,7 +118,10 @@ void fill_libdata(char* filename, SLibr* sl) {
         make_good_str(s->naznachenie.str, n);
         make_good_date(&s->naznachenie.str);
 
+        // считывание разделителя сотрудников
         fscanf(f, "%s", str1);
+
+
         // проверка на возвраст
         // (пенсионер или нет)
         if (is_old(&s->passport.birthday)) {
@@ -158,8 +130,7 @@ void fill_libdata(char* filename, SLibr* sl) {
         else {
             s->is_old = 0;
         }
-    }
-    
+    } 
 }
 
 void fill_oldlibdata(const SLibr* sl, SLibr* oldsl) {
@@ -172,16 +143,10 @@ void fill_oldlibdata(const SLibr* sl, SLibr* oldsl) {
             sotr_count++;
         }
     }
-
-    alloc_lib(oldsl, sotr_count);
-    
-    
+    alloc_lib(oldsl, sotr_count); 
     for (i = 0; i < sl->n; i++) {
         if (sl->sotr[i].is_old == 1) {
-
             sotr_cpy(&sl->sotr[i], &oldsl->sotr[k]);
-
-
             k++;
             if (k == sotr_count) {
                 break;
@@ -189,12 +154,4 @@ void fill_oldlibdata(const SLibr* sl, SLibr* oldsl) {
         }
     }
 }
-
-
-
-
-
-
-
-
 

@@ -4,21 +4,8 @@
 #include "Sotrudnik.h"
 #include "general.h"
 #include "Date.h"
-#include "DateLib.h"
 
 
-//void free_sotr(Sotrudnik s) {
-//    
-//    free_pass(s.passport);
-//    free(s.name);
-//    free(s.obrazov);
-//    free(s.specialnost);
-//    free(s.podrazd);
-//    free(s.dolznost);
-//    free_date(s.postuplenie);
-//    free_date(s.naznachenie);
-//    
-//}
 
 void show_other(Sotrudnik* s) {
     printf("Образование: %s\n", s->obrazov);
@@ -26,7 +13,7 @@ void show_other(Sotrudnik* s) {
     printf("Подразделение: %s\n", s->podrazd);
     printf("Должность: %s\n", s->dolznost);
     printf("Оклад: %d руб\n", s->oklad);
-    if (is_old) {
+    if (s->is_old == 1) {
         printf("Пенсионер: да\n");
     }
     else {
@@ -37,6 +24,7 @@ void show_other(Sotrudnik* s) {
 
 
 void get_sotrudnik(Sotrudnik* s,int k) {
+    printf("Сотрудник: %s\n", s->name);
     switch (k)
     {
 
@@ -85,27 +73,3 @@ void sotr_cpy(Sotrudnik* sl1, Sotrudnik* sl2) {
     make_good_date(&sl2->naznachenie);
     sl2->is_old = sl1->is_old;
 }
-//char* name;
-//Passport passport;
-// 
-// 
-//char* obrazov;
-//char* specialnost;
-//char* podrazd;
-//char* dolznost;
-//int oklad;
-//Date postuplenie; // Date !!
-//Date naznachenie; // Date !!   
-//int is_old;
-//
-//int seria;
-//int nomer;
-//char* kem;
-//Date kogda;
-//Date birthday;
-//char* propiska;
-//
-//char* str;
-//int d;
-//int m;
-//int y;

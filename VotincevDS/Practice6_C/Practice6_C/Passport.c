@@ -15,11 +15,5 @@ void show_pass(Passport* pass) {
     
 }
 
-void free_pass(Passport pass) {
-    free_date(pass.birthday);
-    free_date(pass.kogda);
-    free(pass.kem);
-    free(pass.propiska);
-    
-}
+
 

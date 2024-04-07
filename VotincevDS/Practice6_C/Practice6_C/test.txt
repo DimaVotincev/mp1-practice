@@ -19,7 +19,7 @@ Seria: 7453
 Nomer: 402948
 Kem_vidan: UVD KANAVINSKOGO RAIONA
 Kogda_vidan: 31.03.2005
-Birthday: 5/3/1940
+Birthday: 5/3/1972
 Mesto_propiski: Moscow oblast, Moscow, Arbatov street 82
 Obrazovanie: Garvard Graduater 
 Specialnost: Programmer
@@ -27,14 +27,14 @@ Podrazdelenie: GameDev
 Dolznost: Leading programmer
 Oklad: 300000
 Dates_postpuplenii_v_firmu:  14.03.2000 
-Dates_naznachenie: 11.02.2001 
+Dates_naznachenie: 11.02.2005 
 -------------------------------------------------------------------------
 Name: Peter Georgiev
 Seria: 2910
 Nomer: 435621
 Kem_vidan: MVD  OMSKOGO RAYONA
 Kogda_vidan: 25.01.1999
-Birthday: 17/3/1960
+Birthday: 17/3/1955
 Mesto_propiski: Omsk, Kandratieva street 15
 Obrazovanie: Vishee
 Specialnost: Tokar
@@ -42,7 +42,7 @@ Podrazdelenie: otdel tokarnih stankov
 Dolznost: Tokar
 Oklad: 90000
 Dates_postpuplenii_v_firmu:  14.05.2000
-Dates_naznachenie: 11.02.2001 
+Dates_naznachenie: 1.02.2001 
 -------------------------------------------------------------------------
 Name: Nina Frolkina
 Seria: 1924
@@ -56,7 +56,7 @@ Specialnost: Bugalter
 Podrazdelenie: otdel po otchetu ubitkov
 Dolznost: Bugalter
 Oklad: 67990
-Dates_postpuplenii_v_firmu: 30.03.2021
+Dates_postpuplenii_v_firmu: 1.08.2022
 Dates_naznachenie: 30.03.2021 
 -------------------------------------------------------------------------
 Name: Fedor Postukov
@@ -72,7 +72,7 @@ Podrazdelenie: tech personal
 Dolznost: Data scientist
 Oklad: 500000
 Dates_postpuplenii_v_firmu: 3.5.2020
-Dates_naznachenie: 3.5.2020 
+Dates_naznachenie: 23.8.2020 
 -------------------------------------------------------------------------
 Name: Nikolai Famusov
 Seria: 2249 
