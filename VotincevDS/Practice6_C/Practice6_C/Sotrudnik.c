@@ -62,6 +62,7 @@ void get_sotrudnik(Sotrudnik* s,int k) {
 void sotr_cpy(Sotrudnik* sl1, Sotrudnik* sl2) {
     // из sl1 в sl2
     sl2->name.fullname = _strdup(sl1->name.fullname);
+    make_good_name(&sl2->name);
     sl2->passport.seria = sl1->passport.seria;
     sl2->passport.nomer = sl1->passport.nomer;
     sl2->passport.kem = _strdup(sl1->passport.kem);
