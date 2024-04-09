@@ -4,6 +4,7 @@
 class Sotrudnik {
 public:
     std::string name;
+    std::string gender;
     Passport passport;
     std::string obrazov;
     std::string specialnost;

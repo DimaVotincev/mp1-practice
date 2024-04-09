@@ -25,7 +25,7 @@ int main() {
         printf("\tВ базе данных хранится информация ");
         printf("о %d сотрудниках:\n", sl.n);
         for (i = 0; i < sl.n;i++) {
-            printf("%d: %s \n", i+1, sl.sotr[i].name);
+            printf("%d: %s \n", i+1, sl.sotr[i].name.fullname);
         }
         printf("\tО каком сотруднике необходима информация?\n");
         printf("Если нужен список сотрудников пенсионного возраста\n");
@@ -50,7 +50,7 @@ int main() {
             scanf("%*c%d", &k);  
             printf("\n\n");
             get_sotrudnik(sotrudnik, k);
-            printf("\n\n\n");
+            printf("\n\n");
             continue;
 
         }
@@ -59,7 +59,7 @@ int main() {
         if (k == 0) {
             printf("Сотрудники пенсионного возраста:\n", slold.n);
             for (i = 0; i < slold.n;i++) {
-                printf("%d: %s \n", i + 1, slold.sotr[i].name);
+                printf("%d: %s \n", i + 1, slold.sotr[i].name.fullname);
             }
             printf("О каком сотруднике необходима информация?\n");
             scanf("%*c%d", &k);
@@ -78,7 +78,7 @@ int main() {
 
             }
         }       
-        printf("\n\n\n");
+        printf("\n\n");
     }  
     return 0;
 }

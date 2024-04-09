@@ -1,9 +1,10 @@
 #pragma once
 #include "Passport.h"
 #include "Date.h"
+#include "Name.h"
 
 typedef struct {
-    char* name;
+    Name name;
     char* gender;
     Passport passport;
     char* obrazov;

@@ -33,8 +33,9 @@ void fill_libdata(char* filename, SLibr* sl) {
         // получение имени
         fscanf(f, "%s", str1);
         fgets(str1, n, f);
-        s->name = _strdup(str1);
-        make_good_str(s->name, n);
+        s->name.fullname = _strdup(str1);
+        make_good_str(s->name.fullname, n);
+        make_good_name(&s->name);
 
         // получение пола
         fscanf(f, "%s", str1);

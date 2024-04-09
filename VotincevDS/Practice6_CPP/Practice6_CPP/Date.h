@@ -11,9 +11,11 @@ public:
     int y;
 
     Date();
-    Date(std::string, int,int,int);
+    Date(std::string);
     Date(Date&);
     
-    void show_date();
+    int date_is_correct();
+    void make_good_date();
+    //void show_dates(Date& naznach, Date& postup);
     friend std::ostream& operator<<(std::ostream& out, Date& date);
 };

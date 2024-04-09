@@ -1,5 +1,5 @@
 Sotrudnik_Count: 7
-Name: Igor Petrovich
+Name: Burdukov Igor Petrovich
 Gender: Man
 Seria: 2461
 Nomer: 567890 
@@ -15,7 +15,7 @@ Oklad: 80000
 Dates_postpuplenii_v_firmu:  14.06.2000
 Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
-Name: Sergey Nicolaevich
+Name: Sokolov Sergey Nicolaevich
 Gender: Man
 Seria: 7453
 Nomer: 402948
@@ -31,7 +31,7 @@ Oklad: 300000
 Dates_postpuplenii_v_firmu:  14.03.2000 
 Dates_naznachenie: 11.02.2005 
 -------------------------------------------------------------------------
-Name: Peter Georgiev
+Name: Nikolaev Peter Georgievich
 Gender: Man
 Seria: 2910
 Nomer: 435621
@@ -47,7 +47,7 @@ Oklad: 90000
 Dates_postpuplenii_v_firmu:  14.05.2000
 Dates_naznachenie: 1.02.2001 
 -------------------------------------------------------------------------
-Name: Nina Frolkina
+Name: Frolkina Nina Sergeevna
 Gender: Women
 Seria: 1924
 Nomer: 248018
@@ -63,7 +63,7 @@ Oklad: 67990
 Dates_postpuplenii_v_firmu: 1.08.2022
 Dates_naznachenie: 30.03.2021 
 -------------------------------------------------------------------------
-Name: Fedor Postukov
+Name: Postukov Fedor Fedorovich
 Gender: Man
 Seria: 2395
 Nomer: 239104
@@ -79,7 +79,7 @@ Oklad: 500000
 Dates_postpuplenii_v_firmu: 3.5.2020
 Dates_naznachenie: 23.8.2020 
 -------------------------------------------------------------------------
-Name: Nikolai Famusov
+Name: Famusov Nikolai 
 Gender: Man
 Seria: 2249 
 Nomer: 192034
@@ -95,7 +95,7 @@ Oklad: 120000
 Dates_postpuplenii_v_firmu:  15.2.2003
 Dates_naznachenie:  17.2.2003 
 -------------------------------------------------------------------------
-Name: Nastya Ivleeva
+Name: Ivleeva Nastya 
 Gender: Women
 Seria: 2391
 Nomer: 340914

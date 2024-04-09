@@ -3,5 +3,10 @@
 class SotrLibr {
 public:
     int n;
-    Sotrudnik* sotrlib;
+    Sotrudnik* sotr;
+
+    SotrLibr();
+    SotrLibr(int n);
 };
+
+

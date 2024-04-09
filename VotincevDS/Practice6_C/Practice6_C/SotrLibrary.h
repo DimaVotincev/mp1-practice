@@ -6,10 +6,7 @@ typedef struct {
     Sotrudnik* sotr;
 } SLibr;
 
-typedef struct {
-    int n;
-    Sotrudnik* sotr;
-} OldSLibr;
+
 
 
 void alloc_lib(SLibr* sl, int n);

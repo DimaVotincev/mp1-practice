@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-#include "string.h"
+#include <string.h>
 #include "Date.h"
 
 
@@ -103,7 +103,6 @@ int date_is_correct(Date* date) {
 
 int is_old(Date* date, char* gender) {
     int age;
-    char* g = "Women";
     time_t currentTime;
     struct tm* localTime;
     currentTime = time(NULL);

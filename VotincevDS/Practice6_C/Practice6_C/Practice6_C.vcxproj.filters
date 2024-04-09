@@ -33,6 +33,9 @@
     <ClCompile Include="SotrLibrary.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Name.c">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h">
@@ -49,6 +52,9 @@
     </ClInclude>
     <ClInclude Include="SotrLibrary.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Name.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
