@@ -127,7 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Date.cpp" />
+    <ClCompile Include="general.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Passport.cpp" />
+    <ClCompile Include="SotrLib.cpp" />
+    <ClCompile Include="Sotrudnik.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Date.h" />
+    <ClInclude Include="general.h" />
+    <ClInclude Include="Passport.h" />
+    <ClInclude Include="SotrLibr.h" />
+    <ClInclude Include="Sotrudnik.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

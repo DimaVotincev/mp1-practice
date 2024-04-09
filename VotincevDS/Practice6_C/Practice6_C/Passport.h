@@ -3,7 +3,7 @@
 #include "Date.h"
 
 
-typedef struct {
+typedef struct {   
     int seria;
     int nomer;
     char* kem;

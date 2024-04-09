@@ -4,6 +4,7 @@
 
 typedef struct {
     char* name;
+    char* gender;
     Passport passport;
     char* obrazov;
     char* specialnost;

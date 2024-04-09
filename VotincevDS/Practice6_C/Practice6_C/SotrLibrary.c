@@ -36,6 +36,12 @@ void fill_libdata(char* filename, SLibr* sl) {
         s->name = _strdup(str1);
         make_good_str(s->name, n);
 
+        // получение пола
+        fscanf(f, "%s", str1);
+        fgets(str1, n, f);
+        s->gender = _strdup(str1);
+        make_good_str(s->gender, n);
+
         // получение серии
         fscanf(f, "%s", str1);
         fscanf(f, "%s", str1);
@@ -124,7 +130,7 @@ void fill_libdata(char* filename, SLibr* sl) {
 
         // проверка на возвраст
         // (пенсионер или нет)
-        if (is_old(&s->passport.birthday)) {
+        if (is_old(&s->passport.birthday,s->gender)) {
             s->is_old = 1;
         }
         else {

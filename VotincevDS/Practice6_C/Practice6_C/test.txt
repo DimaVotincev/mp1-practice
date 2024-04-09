@@ -1,10 +1,11 @@
-Sotrudnik_Count: 6
+Sotrudnik_Count: 7
 Name: Igor Petrovich
+Gender: Man
 Seria: 2461
 Nomer: 567890 
 Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
-Birthday: 5/3/1959
+Birthday: 5/3/1979
 Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
 Obrazovanie: Srednee obsheeeee
 Specialnost: Programni ingener
@@ -15,6 +16,7 @@ Dates_postpuplenii_v_firmu:  14.06.2000
 Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
 Name: Sergey Nicolaevich
+Gender: Man
 Seria: 7453
 Nomer: 402948
 Kem_vidan: UVD KANAVINSKOGO RAIONA
@@ -30,6 +32,7 @@ Dates_postpuplenii_v_firmu:  14.03.2000
 Dates_naznachenie: 11.02.2005 
 -------------------------------------------------------------------------
 Name: Peter Georgiev
+Gender: Man
 Seria: 2910
 Nomer: 435621
 Kem_vidan: MVD  OMSKOGO RAYONA
@@ -45,6 +48,7 @@ Dates_postpuplenii_v_firmu:  14.05.2000
 Dates_naznachenie: 1.02.2001 
 -------------------------------------------------------------------------
 Name: Nina Frolkina
+Gender: Women
 Seria: 1924
 Nomer: 248018
 Kem_vidan: OTDELOM UFMS GORODA SPB B FRANCUZKOM RAIONE
@@ -60,6 +64,7 @@ Dates_postpuplenii_v_firmu: 1.08.2022
 Dates_naznachenie: 30.03.2021 
 -------------------------------------------------------------------------
 Name: Fedor Postukov
+Gender: Man
 Seria: 2395
 Nomer: 239104
 Kem_vidan: OTDELOM UFMS PO GORODU MOSKVE
@@ -75,6 +80,7 @@ Dates_postpuplenii_v_firmu: 3.5.2020
 Dates_naznachenie: 23.8.2020 
 -------------------------------------------------------------------------
 Name: Nikolai Famusov
+Gender: Man
 Seria: 2249 
 Nomer: 192034
 Kem_vidan: UFMS PO NIZHERODSKOI OBLASTI
@@ -88,4 +94,20 @@ Dolznost: Inziner
 Oklad: 120000
 Dates_postpuplenii_v_firmu:  15.2.2003
 Dates_naznachenie:  17.2.2003 
+-------------------------------------------------------------------------
+Name: Nastya Ivleeva
+Gender: Women
+Seria: 2391
+Nomer: 340914
+Kem_vidan: MVD Rossii po Voronezkoy oblasti
+Kogda_vidan: 23.05.2009
+Birthday: 29.11.1962
+Mesto_propiski: Voronezh Festivalnaya street 16a
+Obrazovanie: Vishee gumanitarnoe
+Specialnost: Psycholog
+Podrazdelenie: otdel po napravleniu sotrudnikov
+Dolznost: Psycholog
+Oklad: 120000
+Dates_postpuplenii_v_firmu:  15.03.2001
+Dates_naznachenie: 17.4.2012
 -------------------------------------------------------------------------

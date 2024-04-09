@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include "string.h"
 #include "Date.h"
 
 
@@ -100,7 +101,9 @@ int date_is_correct(Date* date) {
 }
 
 
-int is_old(Date* date) {
+int is_old(Date* date, char* gender) {
+    int age;
+    char* g = "Women";
     time_t currentTime;
     struct tm* localTime;
     currentTime = time(NULL);
@@ -109,11 +112,20 @@ int is_old(Date* date) {
     int d = localTime->tm_mday;
     int m = localTime->tm_mon + 1;
     int y = localTime->tm_year + 1900;
-    if ((y - date->y) > 65) {
+    
+    
+    if (strcmp(gender,"Women ")) {
+        age = 58;
+    }
+    else {
+        age = 63;
+    }
+
+    if ((y - date->y) > age) {
         return 1;
     }
 
-    if ((y - date->y) == 65) {
+    if ((y - date->y) == age) {
         if (date->m > m) {
             return 1;
         } 
