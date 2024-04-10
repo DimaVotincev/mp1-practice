@@ -7,7 +7,7 @@ Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
 Birthday: 5/3/1979
 Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
-Obrazovanie: Srednee obsheeeee
+Obrazovanie: Srednee obshee
 Specialnost: Programni ingener
 Podrazdelenie: otdel inzenerow
 Dolznost: glavnui inziner
