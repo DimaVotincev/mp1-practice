@@ -137,15 +137,15 @@ int is_old(Date* date, enum Gender gender) {
 
 
 
-int is_date(char* str) {
-    int i = 0;
-    while (str[i] != '\0' && str[i] != '\n' && str[i] != EOF) {
-        if (str[i] == '.' || str[i] == '/') {
-            return 1;
-        }
-        i++;
-    }
-    return 0;
-}
+//int is_date(char* str) {
+//    int i = 0;
+//    while (str[i] != '\0' && str[i] != '\n' && str[i] != EOF) {
+//        if (str[i] == '.' || str[i] == '/') {
+//            return 1;
+//        }
+//        i++;
+//    }
+//    return 0;
+//}
 
 

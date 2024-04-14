@@ -1,0 +1,113 @@
+Sotrudnik_Count: 7  
+Name: Burdukov Igor Petrovich   
+Gender: MALE 
+Seria: 2461
+Nomer: 567890 
+Kem_vidan: MVD     Moscow Raiona
+Kogda_vidan: 14.01.1999
+Birthday: 5/3/1979
+Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
+Obrazovanie: Srednee obsheeeee
+Specialnost: Programni ingener
+Podrazdelenie: otdel inzenerow
+Dolznost: glavnui inziner
+Oklad: 80000
+Dates_postpuplenii_v_firmu:  14.06.2000
+Dates_naznachenie: 11.02.2001 
+-------------------------------------------------------------------------
+Name: Sokolov Sergey Nicolaevich
+Gender: MALE 
+Seria: 7453
+Nomer: 402948
+Kem_vidan: UVD KANAVINSKOGO RAIONA
+Kogda_vidan: 31.03.2005
+Birthday: 5/3/1972
+Mesto_propiski: Moscow oblast, Moscow, Arbatov street 82
+Obrazovanie: Garvard Graduater 
+Specialnost: Programmer
+Podrazdelenie: GameDev
+Dolznost: Leading programmer
+Oklad: 300000
+Dates_postpuplenii_v_firmu:  14.03.2000 
+Dates_naznachenie: 11.02.2005 
+-------------------------------------------------------------------------
+Name: Nikolaev Peter Georgievich
+Gender: MALE
+Seria: 2910
+Nomer: 435621
+Kem_vidan: MVD  OMSKOGO RAYONA
+Kogda_vidan: 25.01.1999
+Birthday: 17/3/1955
+Mesto_propiski: Omsk, Kandratieva street 15
+Obrazovanie: Vishee
+Specialnost: Tokar
+Podrazdelenie: otdel tokarnih stankov
+Dolznost: Tokar
+Oklad: 90000
+Dates_postpuplenii_v_firmu:  14.05.2000
+Dates_naznachenie: 1.02.2001 
+-------------------------------------------------------------------------
+Name: Frolkina Nina Sergeevna
+Gender: FEMALE
+Seria: 1924
+Nomer: 248018
+Kem_vidan: OTDELOM UFMS GORODA SPB B FRANCUZKOM RAIONE
+Kogda_vidan: 17.12.2020
+Birthday: 14.04.1966
+Mesto_propiski: Rostov-na-Donu , Voroshilovskii Raion 16
+Obrazovanie: Obshee polnoe 
+Specialnost: Bugalter
+Podrazdelenie: otdel po otchetu ubitkov
+Dolznost: Bugalter
+Oklad: 67990
+Dates_postpuplenii_v_firmu: 1.08.2022
+Dates_naznachenie: 30.03.2021 
+-------------------------------------------------------------------------
+Name: Postukov Fedor Fedorovich
+Gender: MALE
+Seria: 2395
+Nomer: 239104
+Kem_vidan: OTDELOM UFMS PO GORODU MOSKVE
+Kogda_vidan: 4.1.2020
+Birthday: 1.1.2003
+Mesto_propiski: Gorod Arxangelsk, Arxangel street 891 
+Obrazovanie: Vishee
+Specialnost: Data scientist
+Podrazdelenie: tech personal
+Dolznost: Data scientist
+Oklad: 500000
+Dates_postpuplenii_v_firmu: 3.5.2020
+Dates_naznachenie: 23.8.2020 
+-------------------------------------------------------------------------
+Name: Famusov Nikolai 
+Gender: MALE
+Seria: 2249 
+Nomer: 192034
+Kem_vidan: UFMS PO NIZHERODSKOI OBLASTI
+Kogda_vidan: 9.5.1980
+Birthday: 18.3.1950
+Mesto_propiski: Gorod Niznii Novgorod, Lenina street 18
+Obrazovanie: Vishee
+Specialnost: Tester
+Podrazdelenie: otdel tex obsluzivaniya
+Dolznost: Inziner
+Oklad: 120000
+Dates_postpuplenii_v_firmu:  15.2.2003
+Dates_naznachenie:  17.2.2003 
+-------------------------------------------------------------------------
+Name: Ivleeva Nastya 
+Gender: FEMALE   
+Seria: 2391
+Nomer: 340914
+Kem_vidan: MVD Rossii po Voronezkoy oblasti
+Kogda_vidan: 23.05.2009
+Birthday: 29.11.1962
+Mesto_propiski: Voronezh Festivalnaya street 16a
+Obrazovanie: Vishee gumanitarnoe
+Specialnost: Psycholog
+Podrazdelenie: otdel po napravleniu sotrudnikov
+Dolznost: Psycholog
+Oklad: 120000
+Dates_postpuplenii_v_firmu:  15.03.2001
+Dates_naznachenie: 17.4.2012
+-------------------------------------------------------------------------

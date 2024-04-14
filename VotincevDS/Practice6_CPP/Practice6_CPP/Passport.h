@@ -12,5 +12,6 @@ private:
 public:
     Passport();
     
-    void show_pass();
+    Date& get_birthday();
+    friend std::ifstream& operator>>(std::ifstream& inf, Passport& pass);
 };

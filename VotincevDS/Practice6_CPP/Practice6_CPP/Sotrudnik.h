@@ -1,10 +1,14 @@
 #pragma once
 #include "Date.h"
 #include "Passport.h"
+#include "Gender.h"
+#include "Name.h"
+
+
 class Sotrudnik {
-public:
-    std::string name;
-    std::string gender;
+private:
+    Name name;
+    Gender gender;
     Passport passport;
     std::string obrazov;
     std::string specialnost;
@@ -14,6 +18,12 @@ public:
     Date postuplenie;
     Date naznachenie;
     int is_old;
+public:
+    Sotrudnik();
+    
+    void define_old();
+    friend std::ifstream& operator>>(std::ifstream& inf, Sotrudnik&);
+
 };
 
 
