@@ -22,17 +22,18 @@ int main() {
     fill_oldlibdata(&sl,&slold);
 
     while (1) {
-        printf("\tВ базе данных хранится информация ");
-        printf("о %d сотрудниках:\n", sl.n);
-        for (i = 0; i < sl.n;i++) {
-            printf("%d: %s \n", i+1, sl.sotr[i].name.fullname);
-        }
+        // выводит библиотеку сотрудников        
+        show_slibr(&sl,0);
+        // 2-й параметр:       
+        // 1 - библиотека пенсионеров
+        // 0 - библиотека всех сотрудников
+
         printf("\tО каком сотруднике необходима информация?\n");
-        printf("Если нужен список сотрудников пенсионного возраста\n");
+        printf("Если нужен список сотрудников пенсионного возраста ");
         printf("введите 0 \n");
         printf("(введите -1 для завершения программы)\n");
         scanf("%d", &k);
-        
+
         if (k == -1) {
             return 0;
         }
@@ -42,44 +43,30 @@ int main() {
             k--; // тк индекс на 1 меньше
             sotrudnik = &sl.sotr[k];
 
-            printf("\t\tКакая информация нужна?\n");
-            printf("1: паспорт \n");
-            printf("2: общая информация \n");
-            printf("3: даты назначения и поступления\n");
-            printf("4: всю информацию\n");
-            scanf("%*c%d", &k);  
-            printf("\n\n");
-            get_sotrudnik(sotrudnik, k);
-            printf("\n\n");
-            continue;
+            // спрашивает и показывает информацию
+            // о сотруднике
+            show_sotr(sotrudnik,k);   
 
+            printf("------------------------\n");
+            continue;
         }
 
         // информация о сотрудниках пенсионного возраста
         if (k == 0) {
-            printf("Сотрудники пенсионного возраста:\n", slold.n);
-            for (i = 0; i < slold.n;i++) {
-                printf("%d: %s \n", i + 1, slold.sotr[i].name.fullname);
-            }
+            show_slibr(&slold, 1);
             printf("О каком сотруднике необходима информация?\n");
             scanf("%*c%d", &k);
             if (k > 0 && k <= slold.n) {
                 k--; // тк индекс на 1 меньше
                 sotrudnik = &slold.sotr[k];
 
-                printf("\tКакая информация нужна?\n");
-                printf("1: паспорт \n");
-                printf("2: общая информация \n");
-                printf("3: даты назначения и поступления\n");
-                printf("4: всю информацию\n");
-
-                scanf("%*c%d", &k);
-                get_sotrudnik(sotrudnik, k);
+                show_sotr(sotrudnik,k);
 
             }
-        }       
-        printf("\n\n");
-    }  
+        }
+        printf("------------------------\n");
+    }
+
     return 0;
 }
 

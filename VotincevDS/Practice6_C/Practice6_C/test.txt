@@ -1,13 +1,13 @@
 Sotrudnik_Count: 7
 Name: Burdukov Igor Petrovich
-Gender: Man
+Gender: MALE 
 Seria: 2461
 Nomer: 567890 
 Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
 Birthday: 5/3/1979
 Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
-Obrazovanie: Srednee obshee
+Obrazovanie: Srednee obsheeeee
 Specialnost: Programni ingener
 Podrazdelenie: otdel inzenerow
 Dolznost: glavnui inziner
@@ -16,7 +16,7 @@ Dates_postpuplenii_v_firmu:  14.06.2000
 Dates_naznachenie: 11.02.2001 
 -------------------------------------------------------------------------
 Name: Sokolov Sergey Nicolaevich
-Gender: Man
+Gender: MALE 
 Seria: 7453
 Nomer: 402948
 Kem_vidan: UVD KANAVINSKOGO RAIONA
@@ -32,7 +32,7 @@ Dates_postpuplenii_v_firmu:  14.03.2000
 Dates_naznachenie: 11.02.2005 
 -------------------------------------------------------------------------
 Name: Nikolaev Peter Georgievich
-Gender: Man
+Gender: MALE
 Seria: 2910
 Nomer: 435621
 Kem_vidan: MVD  OMSKOGO RAYONA
@@ -48,12 +48,12 @@ Dates_postpuplenii_v_firmu:  14.05.2000
 Dates_naznachenie: 1.02.2001 
 -------------------------------------------------------------------------
 Name: Frolkina Nina Sergeevna
-Gender: Women
+Gender: FEMALE
 Seria: 1924
 Nomer: 248018
 Kem_vidan: OTDELOM UFMS GORODA SPB B FRANCUZKOM RAIONE
 Kogda_vidan: 17.12.2020
-Birthday: 17.8.1950
+Birthday: 14.04.1966
 Mesto_propiski: Rostov-na-Donu , Voroshilovskii Raion 16
 Obrazovanie: Obshee polnoe 
 Specialnost: Bugalter
@@ -64,7 +64,7 @@ Dates_postpuplenii_v_firmu: 1.08.2022
 Dates_naznachenie: 30.03.2021 
 -------------------------------------------------------------------------
 Name: Postukov Fedor Fedorovich
-Gender: Man
+Gender: MALE
 Seria: 2395
 Nomer: 239104
 Kem_vidan: OTDELOM UFMS PO GORODU MOSKVE
@@ -80,7 +80,7 @@ Dates_postpuplenii_v_firmu: 3.5.2020
 Dates_naznachenie: 23.8.2020 
 -------------------------------------------------------------------------
 Name: Famusov Nikolai 
-Gender: Man
+Gender: MALE
 Seria: 2249 
 Nomer: 192034
 Kem_vidan: UFMS PO NIZHERODSKOI OBLASTI
@@ -96,7 +96,7 @@ Dates_postpuplenii_v_firmu:  15.2.2003
 Dates_naznachenie:  17.2.2003 
 -------------------------------------------------------------------------
 Name: Ivleeva Nastya 
-Gender: Women
+Gender: FEMALE   
 Seria: 2391
 Nomer: 340914
 Kem_vidan: MVD Rossii po Voronezkoy oblasti

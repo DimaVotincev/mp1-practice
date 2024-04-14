@@ -3,7 +3,7 @@
 #include <time.h>
 #include <string.h>
 #include "Date.h"
-
+#include "Gender.h"
 
 
 void alloc_date(Date* date) {
@@ -101,7 +101,7 @@ int date_is_correct(Date* date) {
 }
 
 
-int is_old(Date* date, char* gender) {
+int is_old(Date* date, enum Gender gender) {
     int age;
     time_t currentTime;
     struct tm* localTime;
@@ -113,7 +113,7 @@ int is_old(Date* date, char* gender) {
     int y = localTime->tm_year + 1900;
     
     
-    if (strcmp(gender,"Women ")) {
+    if (gender == FEMALE) {
         age = 58;
     }
     else {
@@ -125,10 +125,10 @@ int is_old(Date* date, char* gender) {
     }
 
     if ((y - date->y) == age) {
-        if (date->m > m) {
+        if (date->m < m) {
             return 1;
         } 
-        if (date->m == m && date->d >= d) {
+        if (date->m == m && date->d <= d) {
             return 1;
         }
     }

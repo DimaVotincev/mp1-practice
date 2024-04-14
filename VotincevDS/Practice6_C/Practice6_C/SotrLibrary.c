@@ -40,8 +40,13 @@ void fill_libdata(char* filename, SLibr* sl) {
         // получение пола
         fscanf(f, "%s", str1);
         fgets(str1, n, f);
-        s->gender = _strdup(str1);
-        make_good_str(s->gender, n);
+        make_good_str(str1, n);
+        if (strcmp(str1,"FEMALE") || strcmp(str1, "FEMALE ") ) {
+            s->gender = FEMALE;
+        }
+        else {
+            s->gender = MALE;
+        }
 
         // получение серии
         fscanf(f, "%s", str1);

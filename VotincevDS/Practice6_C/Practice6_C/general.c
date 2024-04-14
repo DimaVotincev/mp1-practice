@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <malloc.h>
-
+#include "general.h"
 
 void make_good_str(char* input,int n) {
     char* output;
@@ -23,8 +23,8 @@ void make_good_str(char* input,int n) {
             k++;
             continue;
         }
-        if (el == '\0' || el == EOF || el == '\n') {
-            k++;
+        if (el == '\0' || el == EOF || el == '\n') {           
+            k++; 
             break;
         }
     }  
@@ -44,7 +44,8 @@ void make_good_str(char* input,int n) {
             k++;
             continue;
         }
-        if (el == '\0' || el == EOF || el == '\n') {           
+        if (el == '\0' || el == EOF || el == '\n') {   
+           
             break;
         }
     }   
@@ -59,3 +60,37 @@ void make_good_str(char* input,int n) {
     free(output);
 }
 
+
+void show_slibr(SLibr* sl, int k) {
+    int i = 0;
+    if (k) {
+        printf("Сотрудники пенсионного возраста:\n", sl->n);
+        for (i = 0; i < sl->n;i++) {
+            printf("%d: %s \n", i + 1, sl->sotr[i].name.fullname);
+        }
+        return 0;
+    }
+    printf("\tВ базе данных хранится информация ");
+    printf("о %d сотрудниках:\n", sl->n);
+    for (i = 0; i < sl->n;i++) {
+        printf("%d: %s \n", i + 1, sl->sotr[i].name.fullname);
+    }
+
+}
+
+void ask_info() {
+    // спрашивает, какая информация
+    // нужна о пользователе
+
+    printf("\t\tКакая информация нужна?\n");
+    printf("1: паспорт \n");
+    printf("2: общая информация \n");
+    printf("3: даты назначения и поступления\n");
+    printf("4: всю информацию\n");
+}
+
+void show_sotr(Sotrudnik* sotr, int k) {
+    ask_info();
+    scanf("%*c%d", &k);
+    get_sotrudnik(sotr, k);
+}

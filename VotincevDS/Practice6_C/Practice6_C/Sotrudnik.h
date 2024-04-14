@@ -2,16 +2,12 @@
 #include "Passport.h"
 #include "Date.h"
 #include "Name.h"
+#include "Gender.h"
 
-typedef enum
-{
-    MALE = 0,
-    FEMALE = 1
-} Gender;
 
 typedef struct {
     Name name;
-    char* gender; // Gender gender;
+    Gender gender;
     Passport passport;
     char* obrazov;
     char* specialnost;

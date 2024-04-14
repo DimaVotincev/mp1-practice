@@ -56,5 +56,8 @@
     <ClInclude Include="Name.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="Gender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
