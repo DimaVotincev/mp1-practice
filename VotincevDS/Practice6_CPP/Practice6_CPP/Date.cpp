@@ -12,9 +12,18 @@ Date::Date() {
     this->y = 0;
 }
 
-
+Date::Date(const std::string& str) {
+    Date date;
+    date.set_str(str); 
+    date.make_good_date();
+    *this = date;
+}
 
 void Date::set_str(std::string& str) {
+    this->str = str;
+}
+
+void Date::set_str(const std::string& str) {
     this->str = str;
 }
 
@@ -26,10 +35,17 @@ int Date::get_d() { return this->d; };
 int Date::get_m() { return this->m; };
 int Date::get_y() { return this->y; };
 
+void Date::set_d(int _d) { this->d = _d; };
+void Date::set_m(int _m) {this->m = _m;};
+void Date::set_y(int _y) { this->y = _y; };
 
-//Date& operator=(Date& date) {
-//
-//}
+Date& Date::operator=(Date& date) {
+    this->set_str(date.str);
+    this->set_d(date.d);
+    this->set_m(date.m);
+    this->set_y(date.y);
+    return *this;
+}
 
 std::ifstream& operator>>(std::ifstream& inf, Date& date) {
     inf >> date.str; 

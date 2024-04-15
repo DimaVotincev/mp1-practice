@@ -45,7 +45,7 @@ void Sotrudnik::define_old() {
         age = 63;
     }
 
-    if ((y - date.get_d()) > age) {
+    if ((y - date.get_y()) > age) {
         this->is_old = 1;
         return;
     }
@@ -64,6 +64,12 @@ void Sotrudnik::define_old() {
     return;
 }
 
+std::ostream& operator<<(std::ostream& out, Sotrudnik& Sotrudnik) {
+
+    std::cout << "ÍÅ ÑÄÅËÀÍ\n"
+        << "std::ostream & operator<<(std::ostream & out, Sotrudnik & Sotrudnik\n";
+    return out;
+}
 
 std::ifstream& operator>>(std::ifstream& inf, Sotrudnik& Sotrudnik) {
     std::string tmp;

@@ -6,50 +6,37 @@
 #include "Passport.h"
 #include "Name.h"
 #include "Sotrudnik.h"
-
+#include "SotrLibr.h"
 
 #include <cctype>
 using namespace std;
 
-void f1(ifstream& infs,string& str1) {
-    getline(infs, str1);
-}
 
-void f2(ifstream& infs,string& str1) {
-    getline(infs, str1);
-}
 
 int main() {
     ifstream infs;
 
-    infs.open("test.txt");
-
-    string str1;
-    getline(infs, str1);
+    infs.open("test.txt"); 
     
-    Sotrudnik sotr;
+    SotrLibr sl;
 
-    infs >> sotr;
-    /*f1(infs,str1);
-    cout << str1 << '\n';
-    f2(infs, str1);
-    cout << str1 << '\n';*/
+    infs >> sl;
 
-
-
+    // —делать вывод на консоль
+    // библиотеки сотрудников
+    //  (и соответсвующие операторы перегрузить)
+    //
 
 
+    /*int k = 0;
+    while (k != -1) {
+        std::cout << "¬ базе хранитс€ информаци€ о "
+            << sl.get_size() << " сотрудниках:\n";
+        for (int i = 1; i < sl.get_size() + 1;i++) {
+            std::cout << i << ": " << sl.sot
+        }
 
-    //for (int i = 0; i < 10; i++) {
-    //    infs >> str1;
-    //    cout << str1 << '_';
-    //    
-    //    getline(infs, str1);
-    //    make_good_str(str1);
-    //    //int k = stoi(str1);
-    //    cout << str1 << '_' << '\n';
-    //}
-
+    }*/
     
     return 0;
 }

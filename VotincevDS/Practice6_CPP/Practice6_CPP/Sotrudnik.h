@@ -22,6 +22,7 @@ public:
     Sotrudnik();
     
     void define_old();
+    friend std::ostream& operator<<(std::ostream& out, Sotrudnik& Sotrudnik);
     friend std::ifstream& operator>>(std::ifstream& inf, Sotrudnik&);
 
 };
