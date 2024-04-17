@@ -16,6 +16,35 @@ SotrLibr::SotrLibr(int n) {
     this->sotr = new Sotrudnik[n];
 }
 
+SotrLibr::SotrLibr(const SotrLibr& sl, int k) {
+    int count = 0;
+    if (k) {
+        
+        for (int i = 0; i < sl.n;i++) {
+            if (sl.sotr[i].get_old() == 1) {
+                count++;
+            }
+        }
+    }
+    else {
+        std::cout << "Данный оператор предназначен" <<
+            " только для библиотеки пенсионеров!";
+        abort();
+    }
+    this->n = count;
+    this->sotr = new Sotrudnik[this->n];
+    count = 0;
+    for (int i = 0; i < sl.n;i++) {
+        if (sl.sotr[i].get_old() == 1) {
+            this->sotr[count] = sl.sotr[i];
+            count++;
+            if (count == this->n) {
+                return;
+            }
+        }
+    }
+}
+
 SotrLibr::~SotrLibr() {
     if (this->sotr == nullptr) {
 
@@ -24,31 +53,10 @@ SotrLibr::~SotrLibr() {
     this->n = 0;
 }
 
-//void SotrLibr::set_size(int) {
-//
-//}
-//
-//SotrLibr& SotrLibr::operator=(SotrLibr& sl) {
-//    if (this->sotr != nullptr) {
-//        delete []this;
-//    }
-//    this->n = sl.n;
-//    this->sotr = new Sotrudnik[this->n];
-//    for (int i = 0; i < this->n;i++) {
-//        this->sotr[i] = sl.sotr[i];
-//    }
-//    
-//    return *this;
-//}
 
 std::ifstream& operator>>(std::ifstream& inf, SotrLibr& sl) {
-    if (sl.sotr != nullptr) {
-        delete []sl.sotr;
-    }
+    
     std::string tmp;
-    inf >> tmp;
-    getline(inf,tmp);
-    sl.n = stoi(tmp);
     sl.sotr = new Sotrudnik[sl.n];
     for (int i = 0; i < sl.n;i++) {
         inf >> sl.sotr[i];

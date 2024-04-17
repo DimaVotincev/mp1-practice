@@ -4,7 +4,11 @@
 #include <cctype>
 #include "time.h"
 #include "Sotrudnik.h"
+
 #include "general.h"
+
+
+
 
 Sotrudnik::Sotrudnik() {
     std::string str;
@@ -22,6 +26,20 @@ Sotrudnik::Sotrudnik() {
     this->postuplenie = dtmp;
     this->naznachenie = dtmp;
     this->is_old = -1;
+}
+
+Sotrudnik::Sotrudnik(Sotrudnik& sotr) {
+    this->name = sotr.name;
+    this->gender = sotr.gender;
+    this->passport = sotr.passport;
+    this->obrazov = sotr.obrazov;
+    this->specialnost = sotr.specialnost;
+    this->podrazd = sotr.podrazd;
+    this->dolznost = sotr.dolznost;
+    this->oklad = sotr.oklad;
+    this->postuplenie = sotr.postuplenie;
+    this->naznachenie = sotr.naznachenie;
+    this->is_old = sotr.is_old;
 }
 
 void Sotrudnik::define_old() {
@@ -64,13 +82,92 @@ void Sotrudnik::define_old() {
     return;
 }
 
-std::ostream& operator<<(std::ostream& out, Sotrudnik& Sotrudnik) {
+Name name;
+Gender gender;
+Passport passport;
+std::string obrazov;
+std::string specialnost;
+std::string podrazd;
+std::string dolznost;
+int oklad;
+Date postuplenie;
+Date naznachenie;
+int is_old;
 
-    std::cout << "НЕ СДЕЛАН\n"
-        << "std::ostream & operator<<(std::ostream & out, Sotrudnik & Sotrudnik\n";
-    return out;
+void Sotrudnik::print_generalinfo() {
+    std::cout << "Образование: " << this->obrazov << '\n';
+    std::cout << "Специальность: " << this->specialnost << '\n';    
+    std::cout << "Подразделение: " << this->podrazd << '\n';
+    std::cout << "Должность: " << this->dolznost << '\n';
+    std::cout << "Оклад: " << this->oklad << '\n';
+    if (this->is_old) {
+        std::cout << "Пенсионер: " << "да" << '\n';
+        return;
+    }
+    std::cout << "Пенсионер: " << "нет" << '\n';
 }
 
+void Sotrudnik::print_dates() {
+    std::cout << "Дата поступления: " << 
+        this->postuplenie.get_str() << '\n';
+    std::cout << "Дата назначения: " <<
+        this->naznachenie.get_str() << '\n';
+}
+
+
+void Sotrudnik::print_sotr() {
+    int k;
+    std::cout << "Какая информация нужна о сотруднике?\n"
+        << "1 - паспортные данные\n"
+        << "2 - общую информацию\n"
+        << "3 - даты поступления и назначения\n"
+        << "4 - всю информацию\n";
+    std::cin >> k;
+
+    std::cout << "\tСотрудник\n";
+    std::cout << "Фамилия: "
+        << this->get_name().get_F() << '\n';
+    std::cout << "Имя: "
+        << this->get_name().get_I() << '\n';
+    std::cout << "Отчество: "
+        << this->get_name().get_O() << '\n';
+    switch (k)
+    {
+    case 1:
+        this->get_pass().print_pass();
+        
+        break;
+    case 2:
+        this->print_generalinfo();
+        break;
+    case 3:
+        this->print_dates();
+        break;
+    case 4:
+        this->get_pass().print_pass();
+        this->print_generalinfo();
+        this->print_dates();
+        break;
+    default:
+        break;
+    }
+}
+
+
+Sotrudnik& Sotrudnik::operator=(Sotrudnik& sotr) {
+    this->name = sotr.name;
+    this->gender = sotr.gender;
+    this->passport = sotr.passport;
+    this->obrazov = sotr.obrazov;
+    this->specialnost = sotr.specialnost;
+    this->podrazd = sotr.podrazd;
+    this->dolznost = sotr.dolznost;
+    this->oklad = sotr.oklad;
+    this->postuplenie = sotr.postuplenie;
+    this->naznachenie = sotr.naznachenie;
+    this->is_old = sotr.is_old;
+    return *this;
+}
 std::ifstream& operator>>(std::ifstream& inf, Sotrudnik& Sotrudnik) {
     std::string tmp;
     

@@ -2,12 +2,24 @@
 #include <fstream>
 #include "Name.h"
 #include "general.h"
+
+
 Name::Name() {
     this->fullname = "";
     this->F = "";
     this->I = "";
     this->O = "";
 }
+
+
+Name& Name::operator=(Name& name) {
+    this->fullname = name.fullname;
+    this->F = name.F;
+    this->I = name.I;
+    this->O = name.O;
+    return *this;
+}
+
 
 std::ifstream& operator>>(std::ifstream& inf, Name& name) {
     std::string tmp;

@@ -17,8 +17,28 @@ Passport::Passport() {
      
 }
 
+
 Date& Passport::get_birthday() {
     return this->birthday;
+}
+
+void Passport::print_pass() {
+    std::cout << "Серия: " << this->seria << '\n';
+    std::cout << "Номер: " << this->nomer << '\n';
+    std::cout << "Кем выдан: " << this->kem << '\n';
+    std::cout << "Когда выдан: " << this->kogda << '\n';
+    std::cout << "Дата рождение: " << this->birthday << '\n';
+    std::cout << "Прописка: " << this->propiska << '\n';
+}
+
+Passport& Passport::operator=(Passport& pass) {
+    this->seria = pass.seria;
+    this->nomer = pass.nomer;
+    this->kem = pass.kem;
+    this->kogda = pass.kogda;
+    this->birthday = pass.birthday;
+    this->propiska = pass.propiska;
+    return *this;
 }
 
 std::ifstream& operator>>(std::ifstream& inf, Passport& pass) {

@@ -31,13 +31,7 @@ std::string& Date::get_str() {
     return this->str;
 }
 
-int Date::get_d() { return this->d; };
-int Date::get_m() { return this->m; };
-int Date::get_y() { return this->y; };
 
-void Date::set_d(int _d) { this->d = _d; };
-void Date::set_m(int _m) {this->m = _m;};
-void Date::set_y(int _y) { this->y = _y; };
 
 Date& Date::operator=(Date& date) {
     this->set_str(date.str);

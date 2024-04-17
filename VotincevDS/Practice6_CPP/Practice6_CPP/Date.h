@@ -17,12 +17,13 @@ public:
     void set_str(const std::string& str);
     void set_str(std::string& str);
     std::string& get_str();
-    int get_d();
-    int get_m();
-    int get_y();
-    void set_d(int);
-    void set_m(int);
-    void set_y(int);
+    int get_d() { return this->d; };
+    int get_m() { return this->m; };
+    int get_y() { return this->y; };
+
+    void set_d(int _d) { this->d = _d; };
+    void set_m(int _m) { this->m = _m; };
+    void set_y(int _y) { this->y = _y; };
 
 
     int date_is_correct();
@@ -30,5 +31,10 @@ public:
     void make_good_date();
     //void show_dates(Date& naznach, Date& postup);
     Date& operator=( Date& date);
+    friend std::ostream& operator<<(std::ostream& out, Date& date) 
+    {
+        out << date.str;
+        return out;
+    };
     friend std::ifstream& operator>>(std::ifstream& inf, Date& date);
 };

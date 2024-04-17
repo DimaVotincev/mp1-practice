@@ -13,5 +13,7 @@ public:
     Passport();
     
     Date& get_birthday();
+    void print_pass();
+    Passport& operator=(Passport& pass);
     friend std::ifstream& operator>>(std::ifstream& inf, Passport& pass);
 };
