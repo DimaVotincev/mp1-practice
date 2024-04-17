@@ -12,21 +12,19 @@ void alloc_lib(SLibr* sl,int n) {
 }
 
 
-void fill_libdata(char* filename, SLibr* sl) {
+void fill_libdata(char* filename, SLibr* sl,int size) {
     int i;
     const int n = 150;
     char* str1 = (char*)malloc(n);
-    int razm;
+    
     FILE* f = fopen(filename, "r");
     if (f == NULL) {
         abort();
     }
     
-    // считываю кол-во сотрудников
-    fscanf(f, "%s", str1);
-    fscanf(f, "%s", str1);
-    razm = atoi(str1);
-    alloc_lib(sl,razm);
+    
+    
+    alloc_lib(sl,size);
     for (i = 0; i < sl->n;i++) {
 
         Sotrudnik* s = &sl->sotr[i];

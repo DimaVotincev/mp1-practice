@@ -9,24 +9,35 @@
 
 
 
-int main() {
+int main(int argc, char** argv) {
     system("chcp 1251");
     setlocale(LC_ALL, "Rus");
-    char filename[] = "test.txt"; 
-    int i,k;
+    int size ;
+    char* filename; 
+    if (argc == 3) {
+        size = atoi(argv[1]);
+        filename = argv[2]; 
+    }
+    else {
+        printf("Неверное кол-во аргументов командной строки");
+        return -1;
+    }
+    
+    
+    int k;
     SLibr sl;
     SLibr slold;
     Sotrudnik* sotrudnik;
-    fill_libdata(filename,&sl);
-
+    fill_libdata(filename,&sl,size);
+    
     fill_oldlibdata(&sl,&slold);
 
     while (1) {
         // выводит библиотеку сотрудников        
         show_slibr(&sl,0);
         // 2-й параметр:       
-        // 1 - библиотека пенсионеров
-        // 0 - библиотека всех сотрудников
+        // 1 - вывод для библиотеки пенсионеров
+        // 0 - вывод для библиотеки всех сотрудников
 
         printf("\tО каком сотруднике необходима информация?\n");
         printf("Если нужен список сотрудников пенсионного возраста ");
@@ -43,7 +54,8 @@ int main() {
             k--; // тк индекс на 1 меньше
             sotrudnik = &sl.sotr[k];
 
-            // спрашивает и показывает информацию
+            // спрашивает и выводит 
+            // информацию на консоль
             // о сотруднике
             show_sotr(sotrudnik,k);   
 
@@ -66,7 +78,8 @@ int main() {
         }
         printf("------------------------\n");
     }
-
+    free(slold.sotr);
+    free(sotrudnik);
     return 0;
 }
 
