@@ -31,6 +31,16 @@ std::ifstream& operator>>(std::ifstream& inf, Name& name) {
     return inf;
 }
 
+std::ostream& operator<<(std::ostream& out, Name& name) {
+    out << "Фамилия: "
+        << name.get_F() << '\n';
+    out << "Имя: "
+        << name.get_I() << '\n';
+    out << "Отчество: "
+        << name.get_O() << '\n';
+    return out;
+}
+
 void Name::make_good_name() {
     std::string tmp;
     for (char el : this->fullname) {

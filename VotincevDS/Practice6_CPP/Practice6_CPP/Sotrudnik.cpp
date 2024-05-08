@@ -82,17 +82,7 @@ void Sotrudnik::define_old() {
     return;
 }
 
-Name name;
-Gender gender;
-Passport passport;
-std::string obrazov;
-std::string specialnost;
-std::string podrazd;
-std::string dolznost;
-int oklad;
-Date postuplenie;
-Date naznachenie;
-int is_old;
+
 
 void Sotrudnik::print_generalinfo() {
     std::cout << "Образование: " << this->obrazov << '\n';
@@ -109,13 +99,14 @@ void Sotrudnik::print_generalinfo() {
 
 void Sotrudnik::print_dates() {
     std::cout << "Дата поступления: " << 
-        this->postuplenie.get_str() << '\n';
+        this->postuplenie << "\n";
     std::cout << "Дата назначения: " <<
-        this->naznachenie.get_str() << '\n';
+        this->naznachenie << "\n";
 }
 
 
-void Sotrudnik::print_sotr() {
+
+std::ostream& operator<<(std::ostream& out, Sotrudnik& sotr) {
     int k;
     std::cout << "Какая информация нужна о сотруднике?\n"
         << "1 - паспортные данные\n"
@@ -125,34 +116,30 @@ void Sotrudnik::print_sotr() {
     std::cin >> k;
 
     std::cout << "\tСотрудник\n";
-    std::cout << "Фамилия: "
-        << this->get_name().get_F() << '\n';
-    std::cout << "Имя: "
-        << this->get_name().get_I() << '\n';
-    std::cout << "Отчество: "
-        << this->get_name().get_O() << '\n';
+    out << sotr.get_name();
     switch (k)
     {
     case 1:
-        this->get_pass().print_pass();
-        
+        out << sotr.get_pass();
+
         break;
     case 2:
-        this->print_generalinfo();
+        sotr.print_generalinfo();
         break;
     case 3:
-        this->print_dates();
+        sotr.print_dates();
         break;
     case 4:
-        this->get_pass().print_pass();
-        this->print_generalinfo();
-        this->print_dates();
+
+        out << sotr.get_pass();
+        sotr.print_generalinfo();
+        sotr.print_dates();
         break;
     default:
         break;
     }
+    return out;
 }
-
 
 Sotrudnik& Sotrudnik::operator=(Sotrudnik& sotr) {
     this->name = sotr.name;
@@ -236,3 +223,49 @@ std::ifstream& operator>>(std::ifstream& inf, Sotrudnik& Sotrudnik) {
 
 }
 
+
+
+//         SAVED FUNCTIONS 
+//        (old functions)
+
+
+//void print_sotr();
+
+//void Sotrudnik::print_sotr() {
+//    int k;
+//    std::cout << "Какая информация нужна о сотруднике?\n"
+//        << "1 - паспортные данные\n"
+//        << "2 - общую информацию\n"
+//        << "3 - даты поступления и назначения\n"
+//        << "4 - всю информацию\n";
+//    std::cin >> k;
+//
+//    std::cout << "\tСотрудник\n";
+//    std::cout << "Фамилия: "
+//        << this->get_name().get_F() << '\n';
+//    std::cout << "Имя: "
+//        << this->get_name().get_I() << '\n';
+//    std::cout << "Отчество: "
+//        << this->get_name().get_O() << '\n';
+//    switch (k)
+//    {
+//    case 1:
+//        this->get_pass().print_pass();
+//        
+//        break;
+//    case 2:
+//        this->print_generalinfo();
+//        break;
+//    case 3:
+//        this->print_dates();
+//        break;
+//    case 4:
+//        
+//        this->get_pass().print_pass();
+//        this->print_generalinfo();
+//        this->print_dates();
+//        break;
+//    default:
+//        break;
+//    }
+//}

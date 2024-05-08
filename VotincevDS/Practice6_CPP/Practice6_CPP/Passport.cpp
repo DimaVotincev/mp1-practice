@@ -31,6 +31,16 @@ void Passport::print_pass() {
     std::cout << "Прописка: " << this->propiska << '\n';
 }
 
+std::ostream& operator<<(std::ostream& out, Passport& pass) {
+    std::cout << "Серия: " << pass.seria << '\n';
+    std::cout << "Номер: " << pass.nomer << '\n';
+    std::cout << "Кем выдан: " << pass.kem << '\n';
+    std::cout << "Когда выдан: " << pass.kogda << '\n';
+    std::cout << "Дата рождение: " << pass.birthday << '\n';
+    std::cout << "Прописка: " << pass.propiska << '\n';
+    return out;
+}
+
 Passport& Passport::operator=(Passport& pass) {
     this->seria = pass.seria;
     this->nomer = pass.nomer;

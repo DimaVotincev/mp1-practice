@@ -20,5 +20,6 @@ public:
     void make_good_name();
     Name& operator=(Name&);
     friend std::ifstream& operator>>(std::ifstream& inf, Name& name);
+    friend std::ostream& operator<<(std::ostream& out, Name& name);
 };
 

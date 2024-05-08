@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
             
             // запрашивает тип нужной информации
             // и выводит на консоль
-            sl.get_sotr()[k].print_sotr();
+            std::cout << sl.get_sotr()[k];
             
             continue;
         }
@@ -84,9 +84,10 @@ int main(int argc, char** argv) {
                 << "сотрудников пенсионного возраста введите 0\n"
                 << "(для завершения программы введите -1)\n";
             std::cin >> k;
-            k--;
+            
             if (1 <= k && k <= slold.get_size()) {
-                slold.get_sotr()[k].print_sotr();
+                k--;
+                std::cout << slold.get_sotr()[k];
             }
             
             

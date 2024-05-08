@@ -22,8 +22,8 @@ public:
     Sotrudnik();
     Sotrudnik(Sotrudnik& sotr);
 
-    void print_sotr();
-    void print_dates();
+    
+    void print_dates(); // вывод даты назначения и поступления
     void print_generalinfo();
     int get_old() { return this->is_old; };
     Name& get_name() { return this->name; }
@@ -34,6 +34,6 @@ public:
     Sotrudnik& operator=(Sotrudnik& sotr);
     
     friend std::ifstream& operator>>(std::ifstream& inf, Sotrudnik&);
-
+    friend std::ostream& operator<<(std::ostream& out, Sotrudnik&);
 };
 

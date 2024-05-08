@@ -16,4 +16,5 @@ public:
     void print_pass();
     Passport& operator=(Passport& pass);
     friend std::ifstream& operator>>(std::ifstream& inf, Passport& pass);
+    friend std::ostream& operator<<(std::ostream& out, Passport& pass);
 };

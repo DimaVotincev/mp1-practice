@@ -4,7 +4,7 @@ Seria: 2461
 Nomer: 567890 
 Kem_vidan: MVD     Moscow Raiona
 Kogda_vidan: 14.01.1999
-Birthday: 18.04.1961
+Birthday: 09.05.1961
 Mesto_propiski: Nizhegorodskaya Oblast, Niznii Novgorod, Kamarova Street 14
 Obrazovanie: Srednee obsheeeee
 Specialnost: Programni ingener
