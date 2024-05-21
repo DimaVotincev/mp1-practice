@@ -13,7 +13,8 @@ private:
 public:
     Date();
     Date(const std::string&);
-    
+    Date(const Date&);
+
     void set_str(const std::string& str);
     void set_str(std::string& str);
     std::string& get_str();
@@ -30,7 +31,7 @@ public:
     int is_old(Gender&);
     void make_good_date();
     //void show_dates(Date& naznach, Date& postup);
-    Date& operator=( Date& date);
+    Date& operator=(const Date& date);
     friend std::ostream& operator<<(std::ostream& out, Date& date) 
     {
         out << date.str;

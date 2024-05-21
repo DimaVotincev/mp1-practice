@@ -1,4 +1,3 @@
-
 #include "general.h"
 
 void make_good_str(std::string& str) {
@@ -27,9 +26,5 @@ void make_good_str(std::string& str) {
             break;
         }
     }
-
-    
-    
-    str = res;
-    
+    str = res;  
 }

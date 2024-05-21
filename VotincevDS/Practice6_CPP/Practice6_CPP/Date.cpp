@@ -19,6 +19,13 @@ Date::Date(const std::string& str) {
     *this = date;
 }
 
+Date::Date(const Date& d) {
+    this->str = d.str;
+    this->d = d.d;
+    this->m = d.m;
+    this->y = d.y;
+}
+
 void Date::set_str(std::string& str) {
     this->str = str;
 }
@@ -33,7 +40,7 @@ std::string& Date::get_str() {
 
 
 
-Date& Date::operator=(Date& date) {
+Date& Date::operator=(const Date& date) {
     this->set_str(date.str);
     this->set_d(date.d);
     this->set_m(date.m);
@@ -125,7 +132,7 @@ int Date::is_old(Gender& gender) {
     int y = localTime->tm_year + 1900;
 
 
-    if (gender == FEMALE) {
+    if (gender == Gender::FEMALE) {
         age = 58;
     }
     else {

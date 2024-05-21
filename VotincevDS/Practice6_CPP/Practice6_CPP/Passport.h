@@ -11,10 +11,11 @@ private:
     std::string propiska;
 public:
     Passport();
-    
+    Passport(const Passport&);
+
     Date& get_birthday();
     void print_pass();
-    Passport& operator=(Passport& pass);
+    Passport& operator=(const Passport& pass);
     friend std::ifstream& operator>>(std::ifstream& inf, Passport& pass);
     friend std::ostream& operator<<(std::ostream& out, Passport& pass);
 };

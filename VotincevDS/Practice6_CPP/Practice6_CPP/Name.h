@@ -9,6 +9,7 @@ private:
     std::string O;
 public:
     Name();
+    Name(const Name&);
 
     std::string get_F() { return this->F; }
     std::string get_I() { return this->I; }
@@ -18,7 +19,7 @@ public:
     std::string get_fullname() { return this->fullname; }
 
     void make_good_name();
-    Name& operator=(Name&);
+    Name& operator=(const Name&);
     friend std::ifstream& operator>>(std::ifstream& inf, Name& name);
     friend std::ostream& operator<<(std::ostream& out, Name& name);
 };

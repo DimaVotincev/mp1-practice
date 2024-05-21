@@ -7,6 +7,7 @@ private:
 
 public:
     SotrLibr();
+    SotrLibr(const SotrLibr&);
     SotrLibr(const SotrLibr& , int);
     SotrLibr(int n);
     ~SotrLibr();

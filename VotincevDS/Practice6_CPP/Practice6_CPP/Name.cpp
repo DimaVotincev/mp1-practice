@@ -11,8 +11,14 @@ Name::Name() {
     this->O = "";
 }
 
+Name::Name(const Name& n) {
+    this->fullname = n.fullname;
+    this->F = n.F;
+    this->I = n.I;
+    this->O = n.O;
+}
 
-Name& Name::operator=(Name& name) {
+Name& Name::operator=(const Name& name) {
     this->fullname = name.fullname;
     this->F = name.F;
     this->I = name.I;

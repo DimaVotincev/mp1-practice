@@ -53,7 +53,7 @@ Nomer: 248018
 Kem_vidan: OTDELOM UFMS GORODA SPB B FRANCUZKOM RAIONE
 Kogda_vidan: 17.12.2020
 Birthday: 14.04.1966
-Mesto_propiski: Rostov-na-Donu , Voroshilovskii Raion 16
+Mesto_propiski: Moscow , Voroshilovskii Raion 16
 Obrazovanie: Obshee polnoe 
 Specialnost: Bugalter
 Podrazdelenie: otdel po otchetu ubitkov

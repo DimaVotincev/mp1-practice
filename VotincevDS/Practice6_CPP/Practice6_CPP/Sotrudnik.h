@@ -20,8 +20,8 @@ private:
     int is_old;
 public:
     Sotrudnik();
-    Sotrudnik(Sotrudnik& sotr);
-
+    Sotrudnik(const Sotrudnik& sotr);
+    
     
     void print_dates(); // вывод даты назначения и поступления
     void print_generalinfo(); // вывод общей информации
@@ -31,7 +31,7 @@ public:
 
     void define_old();
 
-    Sotrudnik& operator=(Sotrudnik& sotr);
+    Sotrudnik& operator=(const Sotrudnik& sotr);
     
     friend std::ifstream& operator>>(std::ifstream& inf, Sotrudnik&);
     friend std::ostream& operator<<(std::ostream& out, Sotrudnik&);

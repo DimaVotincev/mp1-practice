@@ -1,9 +1,13 @@
 #pragma once
 
-typedef enum {
+//enum class Gender{
+//    MALE,
+//    FEMALE
+//};
+
+
+typedef enum  {
     MALE,
     FEMALE
 } Gender;
-
-
 

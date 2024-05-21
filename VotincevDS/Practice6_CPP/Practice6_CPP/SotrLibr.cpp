@@ -16,6 +16,15 @@ SotrLibr::SotrLibr(int n) {
     this->sotr = new Sotrudnik[n];
 }
 
+SotrLibr::SotrLibr(const SotrLibr& sl) {
+    this->n = sl.n;
+    this->sotr = new Sotrudnik[this->n]; 
+    for (int i = 0; i < this->n;i++) {
+        this->sotr[i] = sl.sotr[i];
+    }
+}
+
+
 SotrLibr::SotrLibr(const SotrLibr& sl, int k) {
     int count = 0;
     if (k) {

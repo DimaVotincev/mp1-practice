@@ -17,6 +17,14 @@ Passport::Passport() {
      
 }
 
+Passport::Passport(const Passport& p) {
+    this->seria = p.seria;
+    this->nomer = p.nomer;
+    this->kem = p.kem;
+    this->kogda = p.kogda;
+    this->birthday = p.birthday;
+    this->propiska = p.propiska;
+}
 
 Date& Passport::get_birthday() {
     return this->birthday;
@@ -41,7 +49,7 @@ std::ostream& operator<<(std::ostream& out, Passport& pass) {
     return out;
 }
 
-Passport& Passport::operator=(Passport& pass) {
+Passport& Passport::operator=(const Passport& pass) {
     this->seria = pass.seria;
     this->nomer = pass.nomer;
     this->kem = pass.kem;

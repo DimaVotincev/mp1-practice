@@ -28,7 +28,7 @@ Sotrudnik::Sotrudnik() {
     this->is_old = -1;
 }
 
-Sotrudnik::Sotrudnik(Sotrudnik& sotr) {
+Sotrudnik::Sotrudnik(const Sotrudnik& sotr) {
     this->name = sotr.name;
     this->gender = sotr.gender;
     this->passport = sotr.passport;
@@ -108,7 +108,7 @@ void Sotrudnik::print_dates() {
 
 std::ostream& operator<<(std::ostream& out, Sotrudnik& sotr) {
     int k;
-    std::cout << "Какая информация нужна о сотруднике?\n"
+    std::cout << "\tКакая информация нужна о сотруднике?\n"
         << "1 - паспортные данные\n"
         << "2 - общую информацию\n"
         << "3 - даты поступления и назначения\n"
@@ -141,7 +141,7 @@ std::ostream& operator<<(std::ostream& out, Sotrudnik& sotr) {
     return out;
 }
 
-Sotrudnik& Sotrudnik::operator=(Sotrudnik& sotr) {
+Sotrudnik& Sotrudnik::operator=(const Sotrudnik& sotr) {
     this->name = sotr.name;
     this->gender = sotr.gender;
     this->passport = sotr.passport;
