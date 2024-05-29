@@ -35,7 +35,6 @@ int main(int argc, char** argv) {
     // означает,что нужно отобрать из sl
     // сотрудников пенсионного возраста
        
-    // TODO: split
     while (1) { 
         std::cin.clear();
         int k;

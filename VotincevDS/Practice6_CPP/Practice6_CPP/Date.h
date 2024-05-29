@@ -26,9 +26,9 @@ public:
     int get_m() const { return this->m; } ;
     int get_y() const { return this->y; } ;
 
-    void set_d(int _d) { this->d = _d; }; // d
-    void set_m(int _m) { this->m = _m; }; // m
-    void set_y(int _y) { this->y = _y; }; // y
+    void set_d(int _d) ; 
+    void set_m(int _m) ; 
+    void set_y(int _y) ; 
 
     void make_good_date();
     // заполняет поля d m y по строке даты

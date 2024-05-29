@@ -52,6 +52,7 @@ int Sotrudnik::is_old() const {
     int m = localTime->tm_mon + 1;
     int y = localTime->tm_year + 1900;
 
+    
 
     if (gender == Gender::FEMALE) {
         age = 58;
