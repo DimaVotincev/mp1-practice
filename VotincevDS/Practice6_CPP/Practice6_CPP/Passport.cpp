@@ -26,30 +26,11 @@ Passport::Passport(const Passport& p) {
     this->propiska = p.propiska;
 }
 
-Date& Passport::get_birthday() {
+Date Passport::get_birthday() const {
     return this->birthday;
 }
 
-void Passport::print_pass() {
-    std::cout << "Серия: " << this->seria << '\n';
-    std::cout << "Номер: " << this->nomer << '\n';
-    std::cout << "Кем выдан: " << this->kem << '\n';
-    std::cout << "Когда выдан: " << this->kogda << '\n';
-    std::cout << "Дата рождение: " << this->birthday << '\n';
-    std::cout << "Прописка: " << this->propiska << '\n';
-}
-
-std::ostream& operator<<(std::ostream& out, Passport& pass) {
-    std::cout << "Серия: " << pass.seria << '\n';
-    std::cout << "Номер: " << pass.nomer << '\n';
-    std::cout << "Кем выдан: " << pass.kem << '\n';
-    std::cout << "Когда выдан: " << pass.kogda << '\n';
-    std::cout << "Дата рождение: " << pass.birthday << '\n';
-    std::cout << "Прописка: " << pass.propiska << '\n';
-    return out;
-}
-
-Passport& Passport::operator=(const Passport& pass) {
+const Passport& Passport::operator=(const Passport& pass) {
     this->seria = pass.seria;
     this->nomer = pass.nomer;
     this->kem = pass.kem;
@@ -103,4 +84,24 @@ std::ifstream& operator>>(std::ifstream& inf, Passport& pass) {
 
     //date.make_good_date();
     return inf;
+}
+
+std::ostream& operator<<(std::ostream& out, Passport& pass) {
+    std::cout << "Серия: " << pass.seria << '\n';
+    std::cout << "Номер: " << pass.nomer << '\n';
+    std::cout << "Кем выдан: " << pass.kem << '\n';
+    std::cout << "Когда выдан: " << pass.kogda << '\n';
+    std::cout << "Дата рождение: " << pass.birthday << '\n';
+    std::cout << "Прописка: " << pass.propiska << '\n';
+    return out;
+}
+
+std::ostream& operator<<(std::ostream& out, Passport pass) {
+    std::cout << "Серия: " << pass.seria << '\n';
+    std::cout << "Номер: " << pass.nomer << '\n';
+    std::cout << "Кем выдан: " << pass.kem << '\n';
+    std::cout << "Когда выдан: " << pass.kogda << '\n';
+    std::cout << "Дата рождение: " << pass.birthday << '\n';
+    std::cout << "Прописка: " << pass.propiska << '\n';
+    return out;
 }

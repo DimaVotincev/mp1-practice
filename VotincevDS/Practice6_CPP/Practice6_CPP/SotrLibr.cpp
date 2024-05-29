@@ -30,7 +30,7 @@ SotrLibr::SotrLibr(const SotrLibr& sl, int k) {
     if (k) {
         
         for (int i = 0; i < sl.n;i++) {
-            if (sl.sotr[i].get_old() == 1) {
+            if (sl.sotr[i].is_old() == 1) {
                 count++;
             }
         }
@@ -44,7 +44,7 @@ SotrLibr::SotrLibr(const SotrLibr& sl, int k) {
     this->sotr = new Sotrudnik[this->n];
     count = 0;
     for (int i = 0; i < sl.n;i++) {
-        if (sl.sotr[i].get_old() == 1) {
+        if (sl.sotr[i].is_old() == 1) {
             this->sotr[count] = sl.sotr[i];
             count++;
             if (count == this->n) {

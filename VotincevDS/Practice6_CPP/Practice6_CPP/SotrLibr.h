@@ -12,10 +12,10 @@ public:
     SotrLibr(int n);
     ~SotrLibr();
 
-    Sotrudnik* get_sotr() { return this->sotr; };
+    Sotrudnik* get_sotr() const { return this->sotr; };
     
 
-    int get_size() { return this->n; };
+    int get_size() const { return this->n; };
     friend std::ifstream& operator>>(std::ifstream& inf, SotrLibr& sl);
 };
 

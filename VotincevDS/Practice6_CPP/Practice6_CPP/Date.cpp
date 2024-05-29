@@ -40,7 +40,7 @@ std::string& Date::get_str() {
 
 
 
-Date& Date::operator=(const Date& date) {
+const Date& Date::operator=(const Date& date) {
     this->set_str(date.str);
     this->set_d(date.d);
     this->set_m(date.m);
@@ -120,36 +120,3 @@ int Date::date_is_correct() {
     return 1;
 }
 
-int Date::is_old(Gender& gender) {
-    int age;
-    time_t currentTime;
-    struct tm* localTime;
-    currentTime = time(NULL);
-    localTime = localtime(&currentTime);
-    // d,m,y - current time
-    int d = localTime->tm_mday;
-    int m = localTime->tm_mon + 1;
-    int y = localTime->tm_year + 1900;
-
-
-    if (gender == Gender::FEMALE) {
-        age = 58;
-    }
-    else {
-        age = 63;
-    }
-
-    if ((y - this->y) > age) {
-        return 1;
-    }
-
-    if ((y - this->y) == age) {
-        if (this->m < m) {
-            return 1;
-        }
-        if (this->m == m && this->d <= d) {
-            return 1;
-        }
-    }
-    return 0;
-}

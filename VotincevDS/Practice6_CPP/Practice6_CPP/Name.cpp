@@ -18,7 +18,7 @@ Name::Name(const Name& n) {
     this->O = n.O;
 }
 
-Name& Name::operator=(const Name& name) {
+const Name& Name::operator=(const Name& name) {
     this->fullname = name.fullname;
     this->F = name.F;
     this->I = name.I;
@@ -38,6 +38,16 @@ std::ifstream& operator>>(std::ifstream& inf, Name& name) {
 }
 
 std::ostream& operator<<(std::ostream& out, Name& name) {
+    out << "Фамилия: "
+        << name.get_F() << '\n';
+    out << "Имя: "
+        << name.get_I() << '\n';
+    out << "Отчество: "
+        << name.get_O() << '\n';
+    return out;
+}
+
+std::ostream& operator<<(std::ostream& out, Name name) {
     out << "Фамилия: "
         << name.get_F() << '\n';
     out << "Имя: "

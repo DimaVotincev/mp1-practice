@@ -12,94 +12,53 @@
 
 int main(int argc, char** argv) {
     system("chcp 1251");
-    std::ifstream infs;
     std::string filename;
+    
     if (argc == 3) {
-        filename = argv[2];
-        
+        filename = argv[2];       
     }
     else {
         std::cout << "Неверное кол-во аргументов командной строки\n";
         return -1;
     }
+    std::ifstream infs;
     infs.open(filename);
+
     int size = atoi(argv[1]);
     SotrLibr sl(size);
     
     infs >> sl;
+    // заполнение с файла
     
     SotrLibr slold(sl, 1);
-
-
     // второй параметр 1 
     // означает,что нужно отобрать из sl
     // сотрудников пенсионного возраста
        
-    
-    while (1) {
+    // TODO: split
+    while (1) { 
         std::cin.clear();
         int k;
         std::cout << "\tВ базе хранится информация о "
             << sl.get_size() << " сотрудниках:\n";
 
-        
-
+        print_names(sl);
         // вывод имен
-        for (int i = 0; i < sl.get_size();i++) {
-                    
-            std::cout << i + 1 << ": " << 
-                sl.get_sotr()[i].get_name().get_fullname() << '\n';
-        }
-        // не использован оператор << для имени
-        // тк он выводит с определенным форматом 
-        // ( Фамилия: ... \n Имя: ... \n Отчество:  ... \n)
 
         std::cout << "\tО каком сотруднике необходима "
-            <<   "информация?\n" 
+            <<                            "информация?\n" 
             << "\tЕсли нужен список сотрудников "
             << "пенсионного возраста введите 0\n"
             << "\t(для завершения программы введите -1)\n";
         std::cin >> k;
         
-        if (1 <= k && k <= sl.get_size()) {
-            k--;
-            
-            
-            // оператор запрашивает тип нужной информации
-            // и выводит на консоль
-            std::cout << sl.get_sotr()[k];
-            
-            continue;
-        }
-
-        if (k == 0) {
-            std::cout << "\tВ базе хранится информация о "
-                << slold.get_size() << " сотрудниках-пенсионерах:\n";
-            for (int i = 0; i < slold.get_size();i++) {
-
-                std::cout << i + 1 << ": " <<
-                    slold.get_sotr()[i].get_name().get_fullname() << '\n';
-            }
-
-
-            std::cout << "\tО каком сотруднике необходима "
-                << "информация?\n";
-            std::cin >> k;
-            
-            if (1 <= k && k <= slold.get_size()) {
-                k--;
-                std::cout << slold.get_sotr()[k];
-            }
-            
-            
-        }
-
-        if (k == -1) {
+        // запрашивает и выводит 
+        // нужную информацию о сотруднике
+        if (ask_print_sotr(k, sl, slold) == 0) {
             return 0;
-        }        
-        
-    }
-    
-   
+        }
+        // если был запрос на завершение программы
+        //то возвращает 0              
+    }  
     return 0;
 }

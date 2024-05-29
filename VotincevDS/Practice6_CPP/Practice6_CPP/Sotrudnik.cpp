@@ -25,7 +25,7 @@ Sotrudnik::Sotrudnik() {
     this->oklad = 0;
     this->postuplenie = dtmp;
     this->naznachenie = dtmp;
-    this->is_old = -1;
+    
 }
 
 Sotrudnik::Sotrudnik(const Sotrudnik& sotr) {
@@ -38,14 +38,11 @@ Sotrudnik::Sotrudnik(const Sotrudnik& sotr) {
     this->dolznost = sotr.dolznost;
     this->oklad = sotr.oklad;
     this->postuplenie = sotr.postuplenie;
-    this->naznachenie = sotr.naznachenie;
-    this->is_old = sotr.is_old;
+    this->naznachenie = sotr.naznachenie;  
 }
 
-void Sotrudnik::define_old() {
-    Date date;
-    date = this->passport.get_birthday();
-
+int Sotrudnik::is_old() const {
+    int age;
     time_t currentTime;
     struct tm* localTime;
     currentTime = time(NULL);
@@ -55,31 +52,28 @@ void Sotrudnik::define_old() {
     int m = localTime->tm_mon + 1;
     int y = localTime->tm_year + 1900;
 
-    int age;
-    if (gender == FEMALE) {
+
+    if (gender == Gender::FEMALE) {
         age = 58;
     }
     else {
         age = 63;
     }
-
-    if ((y - date.get_y()) > age) {
-        this->is_old = 1;
-        return;
+    
+    if ((y - this->passport.get_birthday().get_y()) > age) {
+        return 1;
     }
 
-    if ((y - date.get_y()) == age) {
-        if (date.get_m() < m) {
-            this->is_old = 1;
-            return ;
+    if ((y - this->passport.get_birthday().get_y()) == age) {
+        if (this->passport.get_birthday().get_m() < m) {
+            return 1;
         }
-        if (date.get_m() == m && date.get_d() <= d) {
-            this->is_old = 1;
-            return;
+        if (this->passport.get_birthday().get_m() == m && 
+            this->passport.get_birthday().get_d() <= d) {
+            return 1;
         }
     }
-    this->is_old = 0;
-    return;
+    return 0;
 }
 
 
@@ -90,7 +84,7 @@ void Sotrudnik::print_generalinfo() {
     std::cout << "Подразделение: " << this->podrazd << '\n';
     std::cout << "Должность: " << this->dolznost << '\n';
     std::cout << "Оклад: " << this->oklad << '\n';
-    if (this->is_old) {
+    if (this->is_old()) {
         std::cout << "Пенсионер: " << "да" << '\n';
         return;
     }
@@ -116,7 +110,7 @@ std::ostream& operator<<(std::ostream& out, Sotrudnik& sotr) {
     std::cin >> k;
 
     std::cout << "\tСотрудник\n";
-    out << sotr.get_name();
+    out << sotr.get_name(); 
     switch (k)
     {
     case 1:
@@ -141,7 +135,7 @@ std::ostream& operator<<(std::ostream& out, Sotrudnik& sotr) {
     return out;
 }
 
-Sotrudnik& Sotrudnik::operator=(const Sotrudnik& sotr) {
+const Sotrudnik& Sotrudnik::operator=(const Sotrudnik& sotr) {
     this->name = sotr.name;
     this->gender = sotr.gender;
     this->passport = sotr.passport;
@@ -152,9 +146,9 @@ Sotrudnik& Sotrudnik::operator=(const Sotrudnik& sotr) {
     this->oklad = sotr.oklad;
     this->postuplenie = sotr.postuplenie;
     this->naznachenie = sotr.naznachenie;
-    this->is_old = sotr.is_old;
     return *this;
 }
+
 std::ifstream& operator>>(std::ifstream& inf, Sotrudnik& Sotrudnik) {
     std::string tmp;
     
@@ -215,9 +209,6 @@ std::ifstream& operator>>(std::ifstream& inf, Sotrudnik& Sotrudnik) {
 
     // назначение
     inf >> Sotrudnik.naznachenie;
-
-    // is old ?
-    Sotrudnik.define_old();
 
     return inf;
 
